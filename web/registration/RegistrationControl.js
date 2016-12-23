@@ -3,8 +3,8 @@
  */
 
 function validate(form) {
-    fail = validateName(form.names.value);
-    fail += validateName(form.surname.value);
+    fail = validateName(form.forename.value);
+    fail += validateSurname(form.surname.value);
     fail += validateEmail(form.email.value);
     fail += validateUsername(form.username.value);
     fail += validatePassword(form.password.value);
@@ -17,12 +17,20 @@ function validate(form) {
     }
 }
 
-/* Valid for name and surname */
 function validateName(field) {
     if (field.trim() == "")
-        return ("No name or surname was entered.\n");
+        return ("No name was entered.\n");
     else if (!/^[a-zA-Z]+$/.test(field))
-        return ("Enter only letters for name and surname.\n");
+        return ("Enter only letters for name.\n");
+    else
+        return ("");
+}
+
+function validateSurname(field) {
+    if (field.trim() == "")
+        return ("No surname was entered.\n");
+    else if (!/^[a-zA-Z]+$/.test(field))
+        return ("Enter only letters for surname.\n");
     else
         return ("");
 }

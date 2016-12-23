@@ -3,4 +3,22 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>registration/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserCommunication</servlet-name>
+        <servlet-class>UserCommunicationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserCommunication</servlet-name>
+        <url-pattern>userCommunication/</url-pattern>
+    </servlet-mapping>
 </web-app>

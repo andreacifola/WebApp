@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gestione Profilo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="ManagementProfile.js"></script>
+
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
+        <h2 align="center">Gestione Profilo</h2><br>
+        <form class="form-horizontal" method="post" onsubmit="return validate(this)">
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="name">Nome:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="names" class="form-control" id="name"
+                           placeholder="Inserisci nome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="surname">Cognome:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="surname" class="form-control" id="surname"
+                           placeholder="Inserisci cognome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="city">Città:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="city" class="form-control" id="city"
+                           placeholder="Inserisci città">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="addr">Indirizzo:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="address" class="form-control" id="addr"
+                           placeholder="Inserisci indirizzo">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5">Data:</label>
+                <div class="col-sm-7">
+                    <div class="col-sm-4">
+                        <select id="day" class="form-control">
+                            <option value="1" selected="selected">1</option>
+                            <script type="text/javascript">
+                                var node = document.getElementById('day');
+                                for (i = 2; i <= 31; ++i) {
+                                    node.add(new Option(i))
+                                }
+                            </script>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <select id="month" class="form-control">
+                            <option value="1" selected="selected">1</option>
+                            <script type="text/javascript">
+                                var node = document.getElementById('month');
+                                for (i = 2; i <= 12; ++i) {
+                                    node.add(new Option(i))
+                                }
+                            </script>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <select id="year" class="form-control">
+                            <option value="1930" selected="selected">1930</option>
+                            <script type="text/javascript">
+                                var node = document.getElementById('year');
+                                for (i = 1931; i <= 1998; ++i)
+                                    node.add(new Option(i));
+                            </script>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="email">Email:</label>
+                <div class="col-sm-7">
+                    <input type="email" name="email" class="form-control" id="email"
+                           placeholder="Inserisci email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="usr">Username:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="username" class="form-control" id="usr"
+                           placeholder="Inserisci username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="pwd">Password:</label>
+                <div class="col-sm-7">
+                    <input type="password" name="password" class="form-control" id="pwd"
+                           placeholder="Inserisci password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="rptpwd">Ripeti password:</label>
+                <div class="col-sm-7">
+                    <input type="password" name="rptpassword" class="form-control" id="rptpwd"
+                           placeholder="Inserisci nuovamente password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-5" for="iban">Codice payment.IBAN:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="iban" class="form-control" id="iban"
+                           placeholder="Inserisci codice payment.IBAN">
+                </div>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="form-group col-sm-4" align="right">
+                <div>
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-default">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>

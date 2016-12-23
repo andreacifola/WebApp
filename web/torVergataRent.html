@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tor Vergata Rent</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        h2 {color:darkgreen; text-align:center; font-family: "Times New Roman", Times, serif;
+            font-style:italic; font-weight: bold; font-size:50px}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Tor Vergata Rent</h2><br>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">VOSTRO</a></li>
+        <li><a data-toggle="tab" href="#menu1">VOSTRO</a></li>
+        <li><a data-toggle="tab" href="#menu2">VOSTRO</a></li>
+        <li><a data-toggle="tab" href="#menu3">VOSTRO</a></li>
+        <li><a data-toggle="tab" href="#menu4">Comunicazione</a></li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>Menu 3</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <div class="col-sm-6">
+                <br>
+                <h4 style="text-align:center; font-style:italic">Posta inviata</h4>
+                <br>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">A:</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">Qui va il destinatario</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="object1">Oggetto:</label>
+                        <div class="col-sm-10">
+                            <input readonly type="text" name="forename" class="form-control" id="object1"
+                                   style="width:400px; background:-webkit-linear-gradient(top, whitesmoke, white);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="message1">Testo:</label>
+                        <div class="col-sm-10">
+                            <textarea readonly class="form-control" rows="8" id="message1" style="resize:none;
+                                      width:400px; background:-webkit-linear-gradient(top, whitesmoke, white);">
+                            </textarea>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" style="margin: 20px 20px 20px 160px"><-- Precedente</button>
+                            <button type="button" class="btn btn-default" style="margin: 20px">Successivo --></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <br>
+                <h4 style="text-align:center;font-style:italic;">Posta ricevuta</h4>
+                <br>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Da:</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">Qui va il mittente</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="object2">Oggetto:</label>
+                        <div class="col-sm-10">
+                            <input readonly type="text" name="forename" class="form-control" id="object2"
+                                   style="width:400px; background:-webkit-linear-gradient(top, whitesmoke, white);">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="message2">Testo:</label>
+                        <div class="col-sm-10">
+                            <textarea readonly class="form-control" rows="8" id="message2" style="resize:none;
+                                      width:400px; background:-webkit-linear-gradient(top, whitesmoke, white);">
+                            </textarea>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" style="margin: 20px 20px 20px 160px"><-- Precedente</button>
+                            <button type="button" class="btn btn-default" style="margin: 20px">Successivo --></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

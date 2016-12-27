@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Ricerca filtrata</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-<body>
+<jsp:include page="navigationBar.jsp"/>
     <div class="container-fluid">
         <h2 align="center">Ricerca filtrata</h2>
-        <form name="search-form" class="form-horizontal col-sm-4" method="get" action="/results"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
+        <form name="search-form" class="form-horizontal col-sm-4" method="get" action="/results" onsubmit="return NomeCheck()"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
             <br>
             <div class="form-group">
                 <div class="col-sm-4" align="left">
@@ -172,5 +161,3 @@
             </div>-->
         </div>
     </div>
-</body>
-</html>

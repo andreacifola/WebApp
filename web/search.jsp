@@ -14,6 +14,9 @@
 </head>
 <body>
 <jsp:include page="navigationBar.jsp"/>
+<script type="text/javascript">
+    document.getElementById("search-navbar-link").className="active";
+</script>
 <div class="container-fluid" style="margin-top: 5%">
     <div class="col-sm-4">
         <div class="panel panel-default">

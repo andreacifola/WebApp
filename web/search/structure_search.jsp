@@ -4,6 +4,7 @@
 <%@ page import="model.payment.IBANCredentialNotValid" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.HashMap" %>
+<%@ page import="bean.StructureListBean" %>
 <%@ page contentType="text/html; ISO-8859-1;charset=UTF-8" language="java" %>
 <%
     String startDate = request.getParameter("start-date"),
@@ -48,9 +49,10 @@
     request.setAttribute("filters", filters);
 
     try {
-        ArrayList<Structure> s = new FilteredSearchController().startResearch(null,null, region, city, structure,rooms,toilets,
-                people,beds,price,wifi,smoking,animals,parking,roomService,conditionedAir,view,plasmaTv);
-        request.setAttribute("structure_list",s);
+        StructureListBean structures = new StructureListBean();
+        structures.setStructures(new FilteredSearchController().startResearch(null,null, region, city, structure,rooms,toilets,
+                people,beds,price,wifi,smoking,animals,parking,roomService,conditionedAir,view,plasmaTv));
+        session.setAttribute("structuresBean",structures);
     } catch (IBANCredentialNotValid | SQLException ibanCredentialNotValid) {
         ibanCredentialNotValid.printStackTrace();
     }

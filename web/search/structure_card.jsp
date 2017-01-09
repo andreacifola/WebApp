@@ -5,7 +5,8 @@
     <div class="caption" style="margin-right: -2%">
         <div class="col-sm-10" style="display: inline-block; float: none; vertical-align: middle">
             <div class="row">
-                <h4 class="card-title"><%=structuresBean.getStructures().get(index).getName()%></h4>
+                <label><h4 class="card-title"><%=structuresBean.getStructures().get(index).getName()%></h4></label>
+                <span class="glyphicon glyphicon-check" style="margin-left: 2%"></span>
                 <h6><%=structuresBean.getStructures().get(index).getAddress()%></h6>
                 <p class="card-text" align="justify"><%=structuresBean.getStructures().get(index).getDescription()%></p>
             </div>

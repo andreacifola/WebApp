@@ -1,5 +1,3 @@
-<%@ page import="model.insertNewLocation.Structure" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="controller.filteredSearch.FilteredSearchController" %>
 <%@ page import="model.payment.IBANCredentialNotValid" %>
 <%@ page import="java.sql.SQLException" %>

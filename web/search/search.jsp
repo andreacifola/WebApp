@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
 <html>
 <head>
     <title>Ricerca filtrata</title>
@@ -17,13 +18,12 @@
 </head>
 <body>
 
-<jsp:include page="navigation_bar.jsp">
+<jsp:include page="../navigation_bar.jsp">
     <jsp:param name="current_tab" value="1"/>
 </jsp:include>
 
 <div class="container-fluid" style="margin-top: 5%">
-
-    <nav class="col-sm-4">
+    <div class="col-sm-4">
         <%  HashMap<String,Object> filters = (HashMap<String, Object>) request.getAttribute("filters");%>
         <%  if (filters != null){%>
         <jsp:include page="filter_search_box.jsp">
@@ -49,18 +49,15 @@
         <%}else{%>
         <jsp:include page="filter_search_box.jsp"/>
         <%}%>
-    </nav>
-
+    </div>
     <div class="col-sm-8">
-        <%if (request.getAttribute("structure_list") != null){for (Structure structure : (ArrayList<Structure>) request.getAttribute("structure_list")) {%>
+        <%for (int i=0; i<structuresBean.getStructures().size();i++) {%>
         <div class="row">
             <jsp:include page="structure_card.jsp">
-                <jsp:param name="title" value="<%=structure.getName()%>"/>
-                <jsp:param name="address" value="<%=structure.getAddress()%>"/>
-                <jsp:param name="description" value="<%=structure.getDescription()%>"/>
+                <jsp:param name="structure_index" value="<%=i%>"/>
             </jsp:include>
         </div>
-        <%}}%>
+        <%}%>
     </div>
 </div>
 

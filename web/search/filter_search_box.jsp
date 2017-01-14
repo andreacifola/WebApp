@@ -5,7 +5,7 @@
         <h3 class="panel-title">Inserisci valori di ricerca</h3>
     </div>
     <div class="panel-body" style="margin-bottom:-5%;">
-        <form name="search-form" class="form-horizontal col-sm-12" method="post" action="./structure_search.jsp" onsubmit="return NomeCheck()"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
+        <form name="search-form" class="form-horizontal col-sm-12" method="get" action="structure_search.jsp"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -85,7 +85,6 @@
                         <input name="price" data-provide="slider" type="text"
                                data-slider-tooltip="always" data-slider-min="0" data-slider-max="200"
                                data-slider-step="5" data-slider-value="${param.price == null ? 75 : param.price}" title="price"/>
-
                     </div>
                 </div>
                 <div class="row">

@@ -18,13 +18,13 @@
 </head>
 <body>
 
-<jsp:include page="../navigation_bar.jsp">
+<jsp:include page="/navigation_bar.jsp">
     <jsp:param name="current_tab" value="1"/>
 </jsp:include>
 
 <div class="container-fluid" style="margin-top: 5%">
     <div class="col-sm-4">
-        <jsp:include page="filter_search_box.jsp"/>
+        <jsp:include page="/search/filter_search_box.jsp"/>
     </div>
     <div class="col-sm-8">
         <%for (int i=0; i<structuresBean.getStructures().size();i++) {%>

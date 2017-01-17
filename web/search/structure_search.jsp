@@ -18,5 +18,5 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
-    request.getRequestDispatcher("search.jsp").forward(request,response);
+    request.getRequestDispatcher("/search/search.jsp").forward(request,response);
 %>

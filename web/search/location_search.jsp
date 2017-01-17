@@ -13,7 +13,7 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="../navigation_bar.jsp">
+<jsp:include page="/navigation_bar.jsp">
     <jsp:param name="current_tab" value="1"/>
 </jsp:include>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>

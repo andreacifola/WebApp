@@ -17,7 +17,7 @@
 
 
         <h1 align="center">Sign in</h1>
-        <form class="form-horizontal" action="/loginControl.jsp" method="get">
+        <form class="form-horizontal" action="/WEB-INF/signin/signinControl.jspgninControl.jsp" method="get">
             <div class="form-group">
                 <% if (request.getAttribute("username_not_valid") != null) {%>
                 <div class="alert alert-danger" role="alert">

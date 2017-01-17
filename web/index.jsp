@@ -7,7 +7,7 @@
 
 <div class="container-fluid" align="left" style="margin-top: 10%; margin-left: 5%">
     <nav class="col-sm-6">
-        <jsp:include page="signin.jsp"/>
+        <jsp:include page="WEB-INF/signin/signin.jsp"/>
     </nav>
 
 </div>

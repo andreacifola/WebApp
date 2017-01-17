@@ -24,31 +24,7 @@
 
 <div class="container-fluid" style="margin-top: 5%">
     <div class="col-sm-4">
-        <%  HashMap<String,Object> filters = (HashMap<String, Object>) request.getAttribute("filters");%>
-        <%  if (filters != null){%>
-        <jsp:include page="filter_search_box.jsp">
-            <jsp:param name="startdate" value="<%=filters.get(\"start-date\")%>"/>
-            <jsp:param name="enddate" value="<%=filters.get(\"end-date\")%>"/>
-            <jsp:param name="region" value="<%=filters.get(\"region\")%>"/>
-            <jsp:param name="city" value="<%=filters.get(\"city\")%>"/>
-            <jsp:param name="structure" value="<%=filters.get(\"structure\")%>"/>
-            <jsp:param name="rooms" value="<%=filters.get(\"rooms\")%>"/>
-            <jsp:param name="toilets" value="<%=filters.get(\"toilets\")%>"/>
-            <jsp:param name="people" value="<%=filters.get(\"people\")%>"/>
-            <jsp:param name="beds" value="<%=filters.get(\"beds\")%>"/>
-            <jsp:param name="price" value="<%=filters.get(\"price\")%>"/>
-            <jsp:param name="wifi" value="<%=filters.get(\"wifi\")%>"/>
-            <jsp:param name="animals" value="<%=filters.get(\"animals\")%>"/>
-            <jsp:param name="roomservice" value="<%=filters.get(\"room-service\")%>"/>
-            <jsp:param name="view" value="<%=filters.get(\"view\")%>"/>
-            <jsp:param name="smoking" value="<%=filters.get(\"smoking\")%>"/>
-            <jsp:param name="parking" value="<%=filters.get(\"parking\")%>"/>
-            <jsp:param name="conditionedair" value="<%=filters.get(\"conditioned-air\")%>"/>
-            <jsp:param name="plasmatv" value="<%=filters.get(\"plasma-tv\")%>"/>
-        </jsp:include>
-        <%}else{%>
         <jsp:include page="filter_search_box.jsp"/>
-        <%}%>
     </div>
     <div class="col-sm-8">
         <%for (int i=0; i<structuresBean.getStructures().size();i++) {%>
@@ -60,24 +36,4 @@
         <%}%>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        var start_date=$('input[name="start-date"]');
-        var end_date=$('input[name="end-date"]');
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        start_date.datepicker({
-            format: 'dd/mm/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true
-        });
-        end_date.datepicker({
-            format: 'dd/mm/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true
-        })
-    })
-</script>
 </body>

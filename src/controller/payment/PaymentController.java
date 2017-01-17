@@ -4,6 +4,7 @@ import boundary.CreditCardSociety;
 import model.User;
 import model.language.payment.PaymentLanguage;
 import model.payment.*;
+import view.PaymentForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +24,7 @@ public class PaymentController {
 
     private void createView(String amount) {
         JFrame frame = new JFrame(PaymentLanguage.payment_payment);
+        frame.setContentPane(new PaymentForm(frame, this, amount).getPanelMain());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

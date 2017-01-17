@@ -5,6 +5,7 @@ import model.insertNewLocation.AvailableTime;
 import model.insertNewLocation.Location;
 import model.insertNewLocation.Service;
 import querySQL.Query;
+import view.LocationForStructure;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -17,7 +18,11 @@ import java.util.ArrayList;
  * Created by tizianoditoma on 06/09/16.
  */
 public class InsertNewLocationController {
+    private LocationForStructure locationForStructure;
 
+    public InsertNewLocationController(LocationForStructure locationForStructure) {
+        this.locationForStructure = locationForStructure;
+    }
 
     public static boolean checkFields(String numOfRoom, String numOfBath, String numMaxGuest, String numBeds, String price) {
         if (!isNumeric(numOfRoom) || !isNumeric(numOfBath) || !isNumeric(numMaxGuest) || !isNumeric(numBeds)) {
@@ -84,6 +89,8 @@ public class InsertNewLocationController {
 
                 Location locationToAdd = new Location(description, Integer.parseInt(numOfRoom), Integer.parseInt(numOfBath), Integer.parseInt(numMaxGuest), Integer.parseInt(numBeds),
                         Double.parseDouble(price), service, availability, new ArrayList<>());
+                this.locationForStructure.getStructure().getLocations().add(locationToAdd);
+                this.locationForStructure.loadLocation(this.locationForStructure.getStructure());
 
 
             } catch (SQLException e) {

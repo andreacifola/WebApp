@@ -69,7 +69,7 @@ public class RegistrationController {
         return (string.length() >= length);
     }
 
-    public boolean validUsername(String username) {
+    private boolean validUsername(String username) {
         Connection connection = DataSource.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement(Query.countUsername);
@@ -108,8 +108,8 @@ public class RegistrationController {
         return difference > 0;
     }
 
-    public boolean addNewUser(String name,String surname,String city,String address,GregorianCalendar birthDate,String email,
-                              String username, String password, String repeatPass, String IBAN, Boolean scout) {
+    public boolean addNewUser(String name, String surname, String city, String address, GregorianCalendar birthDate,
+                              String email, String username, String password, String repeatPass, String IBAN) {
         if (checkFields(name, surname, city, birthDate, email, username, password, repeatPass)) {
             Connection connection = DataSource.getConnection();
             try {
@@ -123,7 +123,6 @@ public class RegistrationController {
                 preparedStatement.setString(7, username);
                 preparedStatement.setString(8, UtilityMD5.stringByHashingPassword(password));
                 preparedStatement.setString(9, IBAN);
-                preparedStatement.setBoolean(10, scout);
 
                 preparedStatement.execute();
                 preparedStatement.clearParameters();

@@ -19,10 +19,9 @@ public class User {
     private String username;
     private String password;
     private IBAN iban;
-    private Integer scout;
 
     public User(String name, String surname, String city, String address, Date birthDate, String email,
-                String username, String password, String iban, Integer scout) throws IBANCredentialNotValid {
+                String username, String password, String iban) throws IBANCredentialNotValid {
         this.name = name;
         this.surname = surname;
         this.city = city;
@@ -32,7 +31,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.iban = new IBAN(iban, name, surname);
-        this.scout = scout;
     }
 
     public User(ResultSet resultSet) throws SQLException {
@@ -49,7 +47,6 @@ public class User {
         } catch (IBANCredentialNotValid ibanCredentialNotValid) {
             this.iban=null;
         }
-        this.scout = resultSet.getInt("scout");
     }
 
     public String getName() {
@@ -86,9 +83,5 @@ public class User {
 
     public IBAN getIban() {
         return iban;
-    }
-
-    public Integer getScout() {
-        return scout;
     }
 }

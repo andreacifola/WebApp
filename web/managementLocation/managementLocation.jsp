@@ -19,9 +19,7 @@
 
 <jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
-
     <jsp:include page="managementLocation_box.jsp"/>
-
 </div>
 
 </body>

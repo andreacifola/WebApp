@@ -6,6 +6,9 @@ import model.feedback.Feedback;
 import model.insertNewLocation.Location;
 import model.language.feedback.FeedbackLanguage;
 import querySQL.Query;
+import view.feedback.AddFeedback;
+import view.filteredResearch.FilteredSearchResultLocation;
+
 import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,9 +22,28 @@ import java.util.Date;
 public class FeedbackController {
     private User user;
     private Location location;
+    private FilteredSearchResultLocation filteredSearchResultLocation;
     private JFrame frame;
 
+    public FeedbackController(FilteredSearchResultLocation filteredSearchResultLocation, User user, Location location) {
+        this.user = user;
+        this.location = location;
+        this.filteredSearchResultLocation = filteredSearchResultLocation;
 
+        try {
+            if (!checkDate())
+                JOptionPane.showMessageDialog(new JPanel(), FeedbackLanguage.feedack_cantInsertFeedback);
+            else {
+                Feedback loadedFeedback = loadFeedback();
+                frame = new JFrame();
+                frame.setContentPane(new AddFeedback(this, loadedFeedback).getjPanelMain());
+                frame.pack();
+                frame.setVisible(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     private boolean checkDate() throws SQLException {
         PreparedStatement ps = DataSource.getConnection().prepareStatement(Query.checkReservation);
@@ -55,6 +77,7 @@ public class FeedbackController {
                 }
 
             this.location.getFeedbacks().add(feedback);
+            filteredSearchResultLocation.loadFeedback(location);
 
         } catch (SQLException e) {
             e.printStackTrace();

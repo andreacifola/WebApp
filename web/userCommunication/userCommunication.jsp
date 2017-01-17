@@ -11,7 +11,7 @@
     <script src="UserCommunicationControl.js"></script>
 </head>
 <body>
-<jsp:include page="../navigationBar.jsp"/>
+<jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
 
     <jsp:include page="userCommunication_box.jsp"/>

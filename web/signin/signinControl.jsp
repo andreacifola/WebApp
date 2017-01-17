@@ -13,6 +13,6 @@
         request.getRequestDispatcher("#").forward(request, response);
     } else {
         session.setAttribute("logged_user", user);
-        request.getRequestDispatcher("success.jsp").forward(request, response);
+        request.getRequestDispatcher("/search/search.jsp").forward(request, response);
     }
 %>

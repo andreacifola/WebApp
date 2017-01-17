@@ -16,7 +16,11 @@
     <script src="managementProfileControl.js"></script>
 </head>
 <body>
-<div class="container-fluid" style="margin-top: 1%">
+<jsp:include page="../navigation_bar.jsp">
+    <jsp:param name="current_tab" value="5"/>
+</jsp:include>
+
+<div class="container-fluid" style="margin-top: 5%">
     <%if (request.getAttribute("username_not_valid") != null){%>
     <div class="alert alert-danger" role="alert">
         Lo username <label style="font-style: italic"> <%=request.getAttribute("username_not_valid")%></label> non è valido.</div>

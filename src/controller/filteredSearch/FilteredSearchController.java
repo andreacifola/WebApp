@@ -46,8 +46,9 @@ public class FilteredSearchController {
                     u_email = resultSet.getString("email"),
                     u_password = resultSet.getString("password"),
                     u_iban = resultSet.getString("iban");
+            Boolean u_scout = resultSet.getBoolean("scout");
             Date u_date = resultSet.getDate("birthdate");
-            return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban);
+            return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban, u_scout);
         }
         throw new SQLException();
     }

@@ -371,7 +371,7 @@ public class TorVergataRent {
 
 
     public static void main(String[] args) throws IBANCredentialNotValid {
-        new TorVergataRentController(new User("Andrea", "Cifola", "Roma", "Via Ferla 11", new Date(1994, 7, 19), "cifola.andrea@gmail.com", "andreacifola", "password", "IT60X0542811101000000123456"));
+        new TorVergataRentController(new User("Andrea", "Cifola", "Roma", "Via Ferla 11", new Date(1994, 7, 19), "cifola.andrea@gmail.com", "andreacifola", "password", "IT60X0542811101000000123456", false));
     }
 
     private void showFilteredResearchResults(ArrayList<Structure> structuresToShow, Date fromDate, Date toDate) {

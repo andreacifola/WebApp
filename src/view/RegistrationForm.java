@@ -67,7 +67,7 @@ public class RegistrationForm {
             if (registrationController.addNewUser(jtextField_Name.getText().trim(), jtextField_Surname.getText().trim(),
                     jTextField_City.getText().trim(), jtextField_Address.getText().trim(), calendar, jtextField_Email.getText().trim(),
                     jtextField_Username.getText().trim(), ((JTextField) jPasswordField_Password).getText().trim(),
-                    ((JTextField) jPasswordField_RepeatPassword).getText().trim(), jtextField_IBAN.getText().trim())) {
+                    ((JTextField) jPasswordField_RepeatPassword).getText().trim(), jtextField_IBAN.getText().trim(), false)) {
                 JOptionPane.showMessageDialog(null, RegistrationLanguage.registration_newUserAdded);
                 frame.setVisible(false);
                 frame.dispose();

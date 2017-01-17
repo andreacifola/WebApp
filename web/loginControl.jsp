@@ -9,7 +9,7 @@
         request.setAttribute("username_not_valid", username);
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
-    else if (user.getScout() == 1) {
+    else if (user.getScout()) {
         request.getRequestDispatcher("#").forward(request, response);
     } else {
         session.setAttribute("logged_user", user);

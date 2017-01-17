@@ -2,13 +2,9 @@
  * Created by andreacifola on 20/12/16.
  */
 
-function validateUser(form) {
+function validate(form) {
     fail = validateName(form.forename.value);
     fail += validateSurname(form.surname.value);
-    fail += validateCity(form.city.value);
-    fail += validateAddress(form.address.value);
-    fail += validateDate(form.date.value);
-    fail += getAge(form.date.value);
     fail += validateEmail(form.email.value);
     fail += validateUsername(form.username.value);
     fail += validatePassword(form.password.value);
@@ -35,47 +31,6 @@ function validateSurname(field) {
         return ("No surname was entered.\n");
     else if (!/^[a-zA-Z]+$/.test(field))
         return ("Enter only letters for surname.\n");
-    else
-        return ("");
-}
-
-function validateCity(field) {
-    if (field.trim() == "")
-        return ("No city was entered.\n");
-    else if (!/^[a-zA-Z]+$/.test(field))
-        return ("Enter only letters for city.\n");
-    else
-        return ("");
-}
-
-function validateAddress(field) {
-    if (field.trim() == "")
-        return ("No address was entered.\n");
-    else
-        return ("");
-}
-
-function getAge(field) {
-    var today = new Date();
-    var date = field.split("/"); //date is given mm/dd/yyyy, but we want dd/mm/yyyy!
-    var month = date[0];
-    var day = date[1];
-    var year = date[2];
-    var birthDate = new Date(day + "/" + month + "/" + year);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    if (age < 18)
-        return ("You don't have major age!\n");
-    else
-        return ("");
-}
-
-function validateDate(field) {
-    if (field.trim() == "")
-        return ("No date was entered.\n");
     else
         return ("");
 }

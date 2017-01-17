@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestisci locazione</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="ManagementLocationControl.js"></script>
+
+    <style>
+        h1 {
+            color: darkgreen;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            font-size: 40px
+        }
+
+        #save {
+            background: -webkit-linear-gradient(top, rgb(210, 210, 210), white);
+            transition: all .65s ease-in-out;
+            margin-left: 4%;
+        }
+
+        #save:hover {
+            background: -webkit-linear-gradient(top, rgb(20, 130, 10), white);
+            transform: scale(1.25, 1.25);
+        }
+
+        #back {
+            background: -webkit-linear-gradient(top, rgb(210, 210, 210), white);
+            transition: all .65s ease-in-out;
+        }
+
+        #back:hover {
+            background: -webkit-linear-gradient(top, rgb(255, 0, 0), white);
+            transform: scale(1.25, 1.25);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Modifica i dati della locazione</h1>
+    <br>
+    <br>
+    <div class="col-sm-8" style="padding-bottom: 30px">
+        <form class="form-horizontal" action="search/" method="post" onsubmit="return validateManag(this)"
+              style="border:3px solid rgba(0,100,0,0.9); padding: 15px">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="descr">Descrizione:</label>
+                <div class="col-sm-10">
+                            <textarea name="description" class="form-control" rows="5" id="descr"
+                                      placeholder="Inserisci descrizione..." style="resize:none; width:550px;">
+                            </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="rooms">N° stanze:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="rooms" class="form-control" id="rooms"
+                           placeholder="Inserisci n° stanze..." style="width: 550px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="guests">N° max ospiti:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="guests" class="form-control" id="guests"
+                           placeholder="Inserisci n° ospiti..." style="width: 550px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="beds">N° letti:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="beds" class="form-control" id="beds"
+                           placeholder="Inserisci n° letti..." style="width:550px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="baths">N° bagni:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="baths" class="form-control" id="baths"
+                           placeholder="Inserisci n° bagni..." style="width: 550px">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="price">Prezzo:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="price" class="form-control" id="price"
+                           placeholder="Inserisci prezzo..." style="width: 550px">
+                </div>
+            </div>
+            <div style="margin-left: 130px">
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">Smoking room
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">Wifi
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">Pets allowed
+                </label><label class="checkbox-inline">
+                <input type="checkbox" value="">Parking
+            </label>
+            </div>
+            <div style="margin-left: 130px">
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">View
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">Conditioned air
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" value="">Pòasma TV
+                </label><label class="checkbox-inline">
+                <input type="checkbox" value="">Service room
+            </label>
+            </div>
+            <a>
+                <button id="back" type="button" class="btn btn-default" style="margin:40px 20px 5px 270px;">Indietro
+                </button>
+                <button id="save" type="submit" class="btn btn-default" style="margin:40px 40px 5px 0">Salva</button>
+            </a>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>

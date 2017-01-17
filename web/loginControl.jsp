@@ -7,9 +7,12 @@
     session.setAttribute("logged_user", user);
     if (user == null){
         request.setAttribute("username_not_valid", username);
-        request.getRequestDispatcher("signin.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request,response);
     }
-    else {
+    else if (user.getScout() == 1) {
+        request.getRequestDispatcher("#").forward(request, response);
+    } else {
+        session.setAttribute("logged_user", user);
         request.getRequestDispatcher("success.jsp").forward(request, response);
     }
 %>

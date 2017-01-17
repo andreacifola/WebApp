@@ -1,19 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <style>
-        body {
-            background-image: url("/resources/background.jpg");
-            background-size: 100% 950%;
-            background-repeat: no-repeat;
-            background-position: 0px 50px;
-
-        }
-    </style>
+    <title>Welcome</title>
 </head>
-<body>
+<body background="resources/background.jpg">
 
-<h1 align="center">Benvenuto nel nostro sito!</h1>
+<div class="container-fluid" align="left" style="margin-top: 10%; margin-left: 5%">
+    <nav class="col-sm-6">
+        <jsp:include page="signin.jsp"/>
+    </nav>
+
+</div>
 
 </body>
 </html>

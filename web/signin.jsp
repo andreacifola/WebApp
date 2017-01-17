@@ -11,14 +11,9 @@
 </head>
 <body>
 
-<div class="container row">
+<div class="container row col-sm-10" style="background-color: white">
 
-    <div class="jumbotron col-sm-8 offset-sm-2"  style="position: absolute;
-                                      margin: auto;
-                                      top: 0;
-                                      right: 0;
-                                      bottom: 0;
-                                      left: 0;">
+    <div class="col-sm-12">
 
 
         <h1 align="center">Sign in</h1>
@@ -41,14 +36,20 @@
                 </div>
             </div>
             <br>
-            <div class="col-sm-8"></div>
-            <div class="form-group col-sm-4">
+            <div class="col-sm-7"></div>
+            <div class="form-group col-sm-5">
                 <div>
                     <button type="reset" class="btn btn-default">Cancel</button>
                     <button type="submit" class="btn btn-default">Sign in</button>
                 </div>
+
             </div>
         </form>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9" align="right">
+        <h5>Non sei ancora registrato? <a href="#"> Registrati ora!</a> </h5>
+        </div>
+
     </div>
 
 </div>

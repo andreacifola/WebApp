@@ -3,14 +3,6 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <servlet>
-        <servlet-name>Autentication</servlet-name>
-        <servlet-class>AutenticationServlet</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Autentication</servlet-name>
-        <url-pattern>autentication/</url-pattern>
-    </servlet-mapping>
 </web-app>
 

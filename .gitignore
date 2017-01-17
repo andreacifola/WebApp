@@ -85,4 +85,8 @@ fabric.properties
 .gitignore
 .idea/
 lib/
+<<<<<<< HEAD
 database/
+=======
+database/
+>>>>>>> Andrea

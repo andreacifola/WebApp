@@ -84,3 +84,5 @@ fabric.properties
 
 .gitignore
 .idea/
+lib/
+database/

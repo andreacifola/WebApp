@@ -36,7 +36,7 @@ public class MaxGuests extends Decorator {
     }
 
     @Override
-    public ArrayList<Structure> search() throws IBANCredentialNotValid, SQLException {
+    public ArrayList<Structure> search() throws SQLException {
         return filterResearchGuests(super.search());
     }
 }

@@ -36,7 +36,7 @@ public class RoomsResearch extends Decorator {
     }
 
     @Override
-    public ArrayList<Structure> search() throws IBANCredentialNotValid, SQLException {
+    public ArrayList<Structure> search() throws SQLException {
         return filterResearchRooms(super.search());
     }
 }

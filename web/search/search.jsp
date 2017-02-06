@@ -1,6 +1,3 @@
-<%@ page import="model.insertNewLocation.Structure" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.HashMap" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
 <html>
@@ -27,13 +24,27 @@
         <jsp:include page="/search/filter_search_box.jsp"/>
     </div>
     <div class="col-sm-8">
-        <%for (int i=0; i<structuresBean.getStructures().size();i++) {%>
-        <div class="row">
-            <jsp:include page="structure_card.jsp">
-                <jsp:param name="structure_index" value="<%=i%>"/>
-            </jsp:include>
+
+        <%if (structuresBean.getStructures() == null){%>
+        <div style="text-align: center; margin-top: 5%">
+            <h3>Inserisci i parametri di ricerca per iniziare!</h3>
         </div>
+        <%}
+
+        else if (structuresBean.getStructures().size() == 0){%>
+        <div style="margin-top: 5%">
+            <h3>Nessuna struttura presente nel sistema che soddisfi i filtri di ricerca applicati</h3>
+        </div>
+        <%}
+
+        else for (int i=0; i < structuresBean.getStructures().size();i++) {%>
+            <div class="row">
+                <jsp:include page="structure_card.jsp">
+                    <jsp:param name="structure_index" value="<%=i%>"/>
+                </jsp:include>
+            </div>
         <%}%>
+
     </div>
 </div>
 </body>

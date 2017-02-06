@@ -19,7 +19,9 @@
             </div>
 
             <div class="col-sm-3">
-                <button type="button" class="btn btn-default btn-block">Contatta</button>
+                <form action=""> <%//TODO Collegamento con andrea%>
+                    <button type="submit" class="btn btn-default btn-block">Contatta</button>
+                </form>
             </div>
         </div>
         <div class="row" style="padding-top: 2%">
@@ -78,7 +80,7 @@
             <div>
                 <h1 align="center"><strong><%=structuresBean.getStructures().get(structureIndex)
                         .getLocations().get(locationIndex).getPrice()%><small><span class="glyphicon glyphicon-euro" aria-hidden="true"></span></small></strong></h1>
-                <form method="get" action="../payment/checkout.jsp">
+                <form method="get" action="../payment/payment.jsp">
                     <button type="submit" name="select" value="${param.id}" class="btn btn-primary btn-block">Prenota ora!</button>
                 </form>
             </div>
@@ -146,7 +148,7 @@
                 <div class="row" style="margin-top: 1%">
                     <div class="col-sm-10"></div>
                     <div class="col-sm-2">
-                        <button class="btn btn-default btn-block" type="submit">Aggiungi</button>
+                        <button class="btn btn-default btn-block" name="locationID" hidden value="<%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getId()%>" type="submit"><%=myFeedBack == -1 ? "Aggiungi":"Modifica"%></button>
                     </div>
                 </div>
             </form>

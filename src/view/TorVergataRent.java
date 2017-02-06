@@ -182,7 +182,7 @@ public class TorVergataRent {
                 try {
                     foundedStructures = filteredSearchController.startResearch(fromDate, toDate, region, city, name, rooms, baths,
                             maxGuests, beds, maxPrice, wifi, smoking, petsAllowed, parking, roomService, conditionedAir, views, plasmaTV);
-                } catch (IBANCredentialNotValid | SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 } finally {
                     showFilteredResearchResults(foundedStructures, fromDate, toDate);

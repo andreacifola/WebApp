@@ -26,8 +26,8 @@ public class AddFeedback {
         jButton_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                feedbackController.storeFeedback(jStarRater.getSelection(), jTextPane_description.getText().trim());
-                feedbackController.getFrame().dispose();
+                //feedbackController.storeFeedback(jStarRater.getSelection(), jTextPane_description.getText().trim());
+                //feedbackController.getFrame().dispose();
             }
         });
     }

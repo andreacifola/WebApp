@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
+<%structuresBean.setLocationSelected(Integer.valueOf(request.getParameter("locationIndex")));%>
+
+<jsp:useBean id="paymentBean" scope="session" class="bean.PaymentBean"/>
+
 <html>
 <head>
     <title>Pagamento</title>
@@ -20,7 +26,7 @@
             <h3 class="panel-title">Inserisci le informazioni richieste</h3>
         </div>
         <div class="panel-body">
-            <form class="col-sm-12" method="get" action="checkout.jsp" onsubmit="return NomeCheck()"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
+            <form class="col-sm-12" method="post" action="checkout.jsp">
                 <div class="form-group">
                     <div class="row">
                         <label class="control-label">Numero di carta di credito:</label>
@@ -39,7 +45,7 @@
                         <input name="date" type="date" class="form-control input-sm">
                     </div>
                     <div class="row" style="text-align: center; margin-top: 5%;  margin-bottom: -10%;">
-                        <button type="submit" name="button" value="cancel" class="btn btn-default">Annulla</button>
+                        <button type="reset" name="button" value="cancel" class="btn btn-default" onclick="history.go(-1)">Annulla</button>
                         <button type="submit" name="button" value="confirm" class="btn btn-primary">Conferma</button>
                     </div>
                 </div>

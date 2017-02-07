@@ -14,7 +14,7 @@
         --><div class="col-sm-2" style="display: inline-block; float: none;">
             <div class="row" style="text-align: center">
                 <form method="get" action="location_search.jsp">
-                    <button type="submit" name="structureindex" value="<%=index%>" class="btn btn-primary">Seleziona</button>
+                    <button type="submit" name="structureindex" value="<%=index%>" hidden class="btn btn-primary">Seleziona</button>
                 </form>
             </div>
         </div>

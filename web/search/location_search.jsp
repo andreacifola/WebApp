@@ -13,23 +13,27 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <jsp:include page="/navigation_bar.jsp">
     <jsp:param name="current_tab" value="1"/>
 </jsp:include>
+
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
-<%Integer structureIndex = Integer.valueOf(request.getParameter("structureindex"));%>
+<%structuresBean.setStructureSelected(Integer.valueOf(request.getParameter("structureindex")));%>
 
 <div class="container" style="margin-top: 4%">
     <h1 class="text-center">Scegli la locazione più adatta a te!</h1>
     <div class="list-group" style="margin-top: 2%">
-        <%for (int locationIndex=0; locationIndex<structuresBean.getStructures().get(structureIndex)
+
+        <%for (int locationIndex=0; locationIndex<structuresBean.getStructures().get(structuresBean.getStructureSelected())
                 .getLocations().size();locationIndex++) {%>
-        <div class="list-group-item">
+
+            <div class="list-group-item">
                 <jsp:include page="location_card.jsp">
-                    <jsp:param name="structure_index" value="<%=structureIndex%>"/>
                     <jsp:param name="location_index" value="<%=locationIndex%>"/>
                 </jsp:include>
-        </div>
+            </div>
+
         <%}%>
 
     </div>

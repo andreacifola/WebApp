@@ -42,8 +42,8 @@
                                 <label class="control-label col-sm-2" for="object1">Oggetto:</label>
                                 <div class="col-sm-10">
                                     <input name="object1" type="text" class="form-control" id="object1"
-                                           value="${param.newObject1}
-                                        " style="background:linear-gradient(whitesmoke,white);" readonly>
+                                           value="${param.newObject1}"
+                                           style="background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>
                             <div class="col-sm-0.5"></div>
@@ -105,7 +105,7 @@
                                 <label class="control-label col-sm-2" for="object1">Oggetto:</label>
                                 <div class="col-sm-10">
                                     <input name="object2" type="text" class="form-control" id="object2"
-                                           value="${param.newObject2}
+                                           value="${param.newObject2}"
                                            style=" background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>

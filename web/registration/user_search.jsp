@@ -47,7 +47,7 @@
             userBean.setUsername(username);
             session.setAttribute("userBean", userBean);
             request.setAttribute("registration_done", username); //TODO prenderlo in signin.jsp come faccio per username_not_valid in registration.jsp!
-            request.getRequestDispatcher("../signin/signin.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else {
             request.setAttribute("username_not_valid", username);
             request.getRequestDispatcher("registration.jsp").forward(request, response);

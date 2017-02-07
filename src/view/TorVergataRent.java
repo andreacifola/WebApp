@@ -175,8 +175,8 @@ public class TorVergataRent {
 
                 Date fromDate = null, toDate = null;
                 try {
-                    //fromDate = (Date) jDatePicker_ResearchFrom.getModel().getValue();
-                    //toDate = (Date) jDatePicker_ResearchTo.getModel().getValue();
+                    fromDate = (Date) jDatePicker_ResearchFrom.getModel().getValue();
+                    toDate = (Date) jDatePicker_ResearchTo.getModel().getValue();
                 } catch (NullPointerException ignored) {
                 }
                 try {

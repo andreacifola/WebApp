@@ -19,8 +19,8 @@
             </div>
 
             <div class="col-sm-3">
-                <form action=""> <%//TODO Collegamento con andrea%>
-                    <button type="submit" class="btn btn-default btn-block">Contatta</button>
+                <form action="/userCommunication/userCommunication.jsp">
+                    <button type="submit" name="username_owner" value="<%=structuresBean.getStructures().get(structureIndex).getOwner().getUsername()%>" hidden class="btn btn-default btn-block">Contatta</button>
                 </form>
             </div>
         </div>

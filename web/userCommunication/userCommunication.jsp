@@ -14,7 +14,9 @@
 <jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
 
-    <jsp:include page="userCommunication_box.jsp"/>
+    <jsp:include page="userCommunication_box.jsp">
+        <jsp:param name="username_receiver" value="<%=request.getParameter(\"username_owner\")%>"/>
+    </jsp:include>
 
 </div>
 </body>

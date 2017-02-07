@@ -14,7 +14,7 @@ public abstract class Decorator extends FilteredSearchController {
     }
 
     @Override
-    public ArrayList<Structure> search() throws IBANCredentialNotValid, SQLException {
+    public ArrayList<Structure> search() throws SQLException {
         return filteredSearch.search();
     }
 }

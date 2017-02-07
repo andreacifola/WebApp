@@ -33,7 +33,7 @@ public class ParkingResearch extends Decorator {
     }
 
     @Override
-    public ArrayList<Structure> search() throws IBANCredentialNotValid, SQLException {
+    public ArrayList<Structure> search() throws SQLException {
         return filterResearchParking(super.search());
     }
 }

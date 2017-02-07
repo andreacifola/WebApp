@@ -8,7 +8,7 @@
         <h3 class="panel-title">Inserisci valori di ricerca</h3>
     </div>
     <div class="panel-body" style="margin-bottom:-5%;">
-        <form name="search-form" class="form-horizontal col-sm-12" method="get" action="/search/structure_search.jsp">
+        <form name="search-form" class="form-horizontal col-sm-12" method="post" action="/search/structure_search.jsp" onsubmit="return validateSearchFilters(this)">
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">

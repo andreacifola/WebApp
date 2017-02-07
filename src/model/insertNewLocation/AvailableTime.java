@@ -71,11 +71,11 @@ public class AvailableTime {
         for (Date[] interval : intervals) {
             Date intervalFrom = withoutTime(interval[0]),
                     intervalTo = withoutTime(interval[1]);
-            if (intervalFrom.after(withoutTime(from)) || intervalTo.before(withoutTime(to))) {
-                return false;
+            if (!intervalFrom.after(from) && !intervalTo.before(to)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private void updateDB(Location location, Date[] toDelete, Date[] toAdd1, Date[] toAdd2) throws SQLException {

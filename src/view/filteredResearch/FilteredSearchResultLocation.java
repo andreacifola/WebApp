@@ -100,8 +100,12 @@ public class FilteredSearchResultLocation {
                 new UsersCommunicationForm(mainView.getTorVergataRentController().getLoggedUser(), owner);
             }
         });
-        jButton_addFeedback.addActionListener(e ->
-                new FeedbackController(this, mainView.getTorVergataRentController().getLoggedUser(), location));
+        jButton_addFeedback.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //new FeedbackController(this, mainView.getTorVergataRentController().getLoggedUser(), location)
+            }
+        });
 
         jButton_Reserve.addActionListener(new ActionListener() {
             @Override

@@ -12,7 +12,7 @@ public class StructureListBean implements Serializable{
     private ArrayList<Structure> structures;
 
     public StructureListBean() {
-        structures = new ArrayList<>();
+        structures = null;
     }
 
     public ArrayList<Structure> getStructures() {

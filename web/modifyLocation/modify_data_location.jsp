@@ -23,11 +23,11 @@
     try {
         ManagementLocationController mlc = new ManagementLocationController();
         //TODO sostituire 1 con id (che cosa è che non mi ricordo???)
-        mlc.modifyLocation(2, description, rooms, toilets, people, beds, price, wifi, animals,
+        mlc.modifyLocation(Integer.valueOf(request.getParameter("structure_index")), description, rooms, toilets, people, beds, price, wifi, animals,
                 roomService, view, smoking, parking, conditionedAir, plasmaTv);
 
         //TODO rimandare alla pagina precedente
-        request.getRequestDispatcher("../registration/registration.jsp").forward(request, response);
+        request.getRequestDispatcher("/managementStructure/structure.jsp").forward(request, response);
     } catch (Exception e) {
         e.printStackTrace();
     }

@@ -29,7 +29,7 @@
                                 <label class="control-label col-sm-2" for="sender">Da:</label>
                                 <div class="col-sm-10">
                                     <input name="sender" type="text" class="form-control input-sm" id="sender"
-                                           value="TODO mettere mittente" style="background:white;" readonly>
+                                           value="${param.username_sender}" style="background:white;" readonly>
                                 </div>
                             </div>
                             <div class="col-sm-0.5"></div>

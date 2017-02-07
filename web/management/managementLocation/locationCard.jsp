@@ -1,41 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tizianoditoma
-  Date: 03/01/17
-  Time: 18:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
 <%Integer structureIndex = Integer.valueOf(request.getParameter("structure_index"));%>
 <%Integer locationIndex = Integer.valueOf(request.getParameter("location_index"));%>
 
-<%--
-<div class="thumbnail">
-    <div class="col-sm-10" style="vertical-align: middle">
-        <div class="row" style="text-align: center">
-            <label><h3 class="card-title" ><%= "Locazione N°: " + structuresBean.getStructures().get(structureIndex)
-                    .getLocations().get(locationIndex).getId()%></h3></label>
-            <span class="glyphicon glyphicon-check" style="margin-left: 2%"></span>
-            <p class="card-text" align="justify"><%= structuresBean.getStructures().get(structureIndex)
-                    .getLocations().get(locationIndex).getDescription()%></p>
-        </div>
-    </div>
-    <div class="caption">
-        <div class="row" style="display: inline-block; float: none;" style="horiz-align: right; margin-right: 2%; margin-top: 3%">
-            <form method="get" action="/management/managementLocation/formLocation.jsp">
-                <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary">Dettagli</button>
-            </form>
-            <form method="get" action="/management/managementLocation/location.jsp">
-                <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary">Modifica</button>
-            </form>
-            <form method="get" action="/management/managementLocation/formLocation.jsp">
-                <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary">Cancella</button>
-            </form>
-        </div>
-    </div>
-</div>
---%>
 <div style="margin: 1%">
     <div class="row" style="text-align: match-parent">
         <div class="col-sm-8" style="margin-top: 0.7%">
@@ -117,8 +84,8 @@
                     <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary"> Dettagli  </button>
                 </form>
                 --%>
-                <form method="get" action="">
-                    <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary">
+                <form method="get" action="/modifyLocation/modifyLocation.jsp">
+                    <button type="submit" name="structureindex" value="<%=locationIndex%>" class="btn btn-primary">
                         Modifica
                     </button>
                 </form>

@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
+<%Integer locationIndex = Integer.valueOf(request.getParameter("id_location"));%>
+<%Integer structureIndex = Integer.valueOf(request.getParameter("structure_index"));%>
 <html>
 <head>
     <title>Gestisci locazione</title>
@@ -38,7 +41,9 @@
                                 <label class="control-label">Descrizione:</label>
                                 <!-- Lasciare così la textarea altrimenti introduce spazi bianchi misteriosi-->
                                 <textarea name="description" class="form-control" rows="5" id="descr"
-                                          placeholder="Inserire la descrizione..." style="resize:none;"></textarea>
+                                          placeholder="<%=structuresBean.getStructures().get(structureIndex)
+                                    .getLocations().get(locationIndex).getDescription()%>"
+                                          style="resize:none;"></textarea>
                             </div>
                             <div class="col-sm-1"></div>
                         </div>
@@ -48,45 +53,93 @@
                                 <div class="col-sm-3">
                                     <label class="control-label">Stanze:</label>
                                     <select name="rooms" class="form-control input-sm" title="rooms-select">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 1 ? "selected=\"selected\"" : null%>>
+                                            1
+                                        </option>
+                                        <option value="2" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 2 ? "selected=\"selected\"" : null%>>
+                                            2
+                                        </option>
+                                        <option value="3" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 3 ? "selected=\"selected\"" : null%>>
+                                            3
+                                        </option>
+                                        <option value="4" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 4 ? "selected=\"selected\"" : null%>>
+                                            4
+                                        </option>
+                                        <option value="5" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 5 ? "selected=\"selected\"" : null%>>
+                                            5
+                                        </option>
+                                        <option value="6" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfRooms() == 6 ? "selected=\"selected\"" : null%>>
+                                            6
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="control-label">Bagni:</label>
                                     <select name="toilets" class="form-control input-sm" title="toilets-select">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 1 ? "selected=\"selected\"" : null%>>
+                                            1
+                                        </option>
+                                        <option value="2" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 2 ? "selected=\"selected\"" : null%>>
+                                            2
+                                        </option>
+                                        <option value="3" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 3 ? "selected=\"selected\"" : null%>>
+                                            3
+                                        </option>
+                                        <option value="4" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 4 ? "selected=\"selected\"" : null%>>
+                                            4
+                                        </option>
+                                        <option value="5" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 5 ? "selected=\"selected\"" : null%>>
+                                            5
+                                        </option>
+                                        <option value="6" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumOfBath() == 6 ? "selected=\"selected\"" : null%>>
+                                            6
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="control-label">Persone:</label>
                                     <select name="people" class="form-control input-sm" title="people-select">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 1 ? "selected=\"selected\"" : null%>>
+                                            1
+                                        </option>
+                                        <option value="2" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 2 ? "selected=\"selected\"" : null%>>
+                                            2
+                                        </option>
+                                        <option value="3" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 3 ? "selected=\"selected\"" : null%>>
+                                            3
+                                        </option>
+                                        <option value="4" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 4 ? "selected=\"selected\"" : null%>>
+                                            4
+                                        </option>
+                                        <option value="5" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 5 ? "selected=\"selected\"" : null%>>
+                                            5
+                                        </option>
+                                        <option value="6" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumMaxGuests() == 6 ? "selected=\"selected\"" : null%>>
+                                            6
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="control-label">Letti:</label>
                                     <select name="beds" class="form-control input-sm" title="beds-select">
-                                        <option value="1" selected="selected">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+                                        <option value="1" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 1 ? "selected=\"selected\"" : null%>>
+                                            1
+                                        </option>
+                                        <option value="2" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 2 ? "selected=\"selected\"" : null%>>
+                                            2
+                                        </option>
+                                        <option value="3" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 3 ? "selected=\"selected\"" : null%>>
+                                            3
+                                        </option>
+                                        <option value="4" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 4 ? "selected=\"selected\"" : null%>>
+                                            4
+                                        </option>
+                                        <option value="5" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 5 ? "selected=\"selected\"" : null%>>
+                                            5
+                                        </option>
+                                        <option value="6" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getNumBeds() == 6 ? "selected=\"selected\"" : null%>>
+                                            6
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -97,7 +150,8 @@
                             <div class="row" style="margin-top: 8%; margin-bottom: 5%">
                                 <div class="col-sm-12">
                                     <label class="control-label" style="margin-right: 5%">Prezzo massimo:</label>
-                                    <input name="price" data-provide="slider" type="text"
+                                    <input name="price" value="<%=structuresBean.getStructures().get(structureIndex)
+                                    .getLocations().get(locationIndex).getPrice()%>" data-provide="slider" type="text"
                                            data-slider-tootip="none" data-slider-min="0" data-slider-max="200"
                                            data-slider-step="5" data-slider-value="100" title="price"/>
                                 </div>
@@ -106,30 +160,45 @@
                         <div class="col-sm-0.5"></div>
                         <div class="col-sm-6">
                             <div class="checkbox">
-                                <label><input name="wifi" type="checkbox">WiFi</label>
+                                <label><input name="wifi"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isWifi() ? "checked=\"checked\"" : null%>>WiFi</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="animals" type="checkbox">Animali ammessi</label>
+                                <label><input name="animals"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isPetsAllowed() ? "checked=\"checked\"" : null%>>Animali
+                                    ammessi</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="room-service" type="checkbox">Servizio in camera</label>
+                                <label><input name="room-service"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isRoomService() ? "checked=\"checked\"" : null%>>Servizio
+                                    in camera</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="view" type="checkbox">Vista panoramica</label>
+                                <label><input name="view"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isViews() ? "checked=\"checked\"" : null%>>Vista
+                                    panoramica</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="checkbox">
-                                <label><input name="smoking" type="checkbox">Stanza per fumatori</label>
+                                <label><input name="smoking"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isSmokingRoom() ? "checked=\"checked\"" : null%>>Stanza
+                                    per fumatori</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="parking" type="checkbox">Area parcheggio</label>
+                                <label><input name="parking"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isParking() ? "checked=\"checked\"" : null%>>Area
+                                    parcheggio</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="conditioned-air" type="checkbox">Area condizionata</label>
+                                <label><input name="conditioned-air"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isConditionedAir() ? "checked=\"checked\"" : null%>>Area
+                                    condizionata</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="plasma-tv" type="checkbox">TV al plasma</label>
+                                <label><input name="plasma-tv"
+                                              type="checkbox" <%=structuresBean.getStructures().get(structureIndex).getLocations().get(locationIndex).getService().isPlasmaTv() ? "checked=\"checked\"" : null%>>TV
+                                    al plasma</label>
                             </div>
                         </div>
                         <div style="text-align: center">

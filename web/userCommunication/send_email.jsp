@@ -5,15 +5,12 @@
     String receiver = request.getParameter("receiver");
     String object = request.getParameter("object");
     String text = request.getParameter("texts");
-    //TODO prendere username di sender dal login di Luca e username di receiver dal caso d'uso di Davide...
-    //sarà forse un request.setParameter("username del sender");
 
     try {
         UsersCommunicationController ucc = new UsersCommunicationController();
-        ucc.sendEmail("andreacifola", "davidemagno", object, text);
+        ucc.sendEmail(sender, receiver, object, text);
 
-        request.getRequestDispatcher("../modifyLocation/modifyLocation.jsp").forward(request, response);
-        //TODO rimandare alla pagina precedente
+        request.getRequestDispatcher("/checkCommunication/checkCommunication.jsp").forward(request, response);
     } catch (Exception e) {
         e.printStackTrace();
     }

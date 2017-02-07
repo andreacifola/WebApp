@@ -19,7 +19,9 @@
 
 <jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
-    <jsp:include page="modifyLocation_box.jsp"/>
+    <jsp:include page="modifyLocation_box.jsp">
+        <jsp:param name="id_location" value="<%=request.getParameter(\"structureindex\")%>"/>
+    </jsp:include>
 </div>
 
 </body>

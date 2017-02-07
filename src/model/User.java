@@ -1,6 +1,5 @@
 package model;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import model.payment.IBAN;
 import model.payment.IBANCredentialNotValid;
 
@@ -21,6 +20,9 @@ public class User {
     private String password;
     private IBAN iban;
     private Boolean scout;
+
+    public User() {
+    }
 
     public User(String name, String surname, String city, String address, Date birthDate, String email,
                 String username, String password, String iban, Boolean scout) throws IBANCredentialNotValid {

@@ -22,6 +22,9 @@ public class User {
     private IBAN iban;
     private Boolean scout;
 
+    public User() {
+    }
+
     public User(String name, String surname, String city, String address, Date birthDate, String email,
                 String username, String password, String iban, Boolean scout) throws IBANCredentialNotValid {
         this.name = name;

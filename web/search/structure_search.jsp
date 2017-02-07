@@ -5,6 +5,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.ParseException" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="bean.PaymentBean" %>
 <%@ page contentType="text/html; ISO-8859-1;charset=UTF-8" language="java" %>
 <jsp:useBean id="filters" scope="request" class="bean.FilterSearchBean">
     <jsp:setProperty name="filters" property="*"/>
@@ -34,6 +35,11 @@
             return;
         }
     }
+
+    PaymentBean paymentBean = new PaymentBean();
+    paymentBean.setStart_date(startDate);
+    paymentBean.setEnd_date(endDate);
+
     try {
         structures.setStructures(new FilteredSearchController().startResearch(startDate, endDate, filters.getRegion(),
                 filters.getCity(), filters.getStructure(), filters.getRooms(),
@@ -43,6 +49,7 @@
         if (structures.getStructures() == null)
             request.getRequestDispatcher("/search/search_error.jsp").forward(request,response);
         else {
+            session.setAttribute("paymentBean", paymentBean);
             session.setAttribute("structuresBean", structures);
             request.getRequestDispatcher("/search/search.jsp").forward(request, response);
         }

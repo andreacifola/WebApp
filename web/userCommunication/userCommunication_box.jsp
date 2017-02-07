@@ -41,7 +41,7 @@
                                 <label class="control-label col-sm-2" for="receiver">A:</label>
                                 <div class="col-sm-10">
                                     <input name="receiver" type="text" class="form-control input-sm" id="receiver"
-                                           value="TODO mettere destinatario" style="background:white;" readonly>
+                                           value="${param.username_receiver}" style="background:white;" readonly>
                                 </div>
                             </div>
                             <div class="col-sm-0.5"></div>

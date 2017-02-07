@@ -1,6 +1,6 @@
 package view;
 
-import controller.InsertLocationController.InsertNewLocationController;
+import controller.insertLocationController.InsertNewLocationController;
 import controller.language.LanguageController;
 import controller.torVergataRent.TorVergataRentController;
 import model.insertNewLocation.AvailableTime;

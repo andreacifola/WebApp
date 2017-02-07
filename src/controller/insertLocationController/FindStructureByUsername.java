@@ -1,11 +1,9 @@
-package controller.InsertLocationController;
+package controller.insertLocationController;
 
 import controller.filteredSearch.FilteredSearchController;
 import dataSource.DataSource;
 import model.insertNewLocation.Structure;
-import model.payment.IBANCredentialNotValid;
 import querySQL.Query;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +16,7 @@ public class FindStructureByUsername {
 
     public FindStructureByUsername() {
     }
-    public ArrayList<Structure> findStructureByUsername(String username) throws SQLException, IBANCredentialNotValid {
+    public ArrayList<Structure> findStructureByUsername(String username) throws SQLException{
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findStructuresByUsername);
         preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();

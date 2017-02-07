@@ -1,4 +1,4 @@
-package controller.InsertStructureController;
+package controller.insertStructureController;
 
 import dataSource.DataSource;
 import querySQL.Query;

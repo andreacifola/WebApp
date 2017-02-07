@@ -1,6 +1,6 @@
 package view;
 
-import controller.InsertStructureController.InsertNewStructureController;
+import controller.insertStructureController.InsertNewStructureController;
 import controller.language.LanguageController;
 import controller.torVergataRent.TorVergataRentController;
 import model.language.formStructure.FormStructureLanguage;

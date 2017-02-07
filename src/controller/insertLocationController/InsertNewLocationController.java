@@ -1,4 +1,4 @@
-package controller.InsertLocationController;
+package controller.insertLocationController;
 
 import dataSource.DataSource;
 import model.insertNewLocation.AvailableTime;
@@ -19,6 +19,9 @@ import java.util.ArrayList;
  */
 public class InsertNewLocationController {
     private LocationForStructure locationForStructure;
+
+    public InsertNewLocationController() {
+    }
 
     public InsertNewLocationController(LocationForStructure locationForStructure) {
         this.locationForStructure = locationForStructure;

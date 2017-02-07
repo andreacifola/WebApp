@@ -86,7 +86,6 @@ public class RegistrationController {
         }
         return false;
     }
-
     private boolean checkPass(String pass1, String pass2) {
         return pass1.equals(pass2);
     }

@@ -16,7 +16,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/css/bootstrap-slider.css">
 
-    <script src="ManagementLocationControl.js"></script>
+    <script src="ModifyLocationControl.js"></script>
 
 </head>
 <body>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                         <div style="text-align: center">
-                            <button type="reset" class="btn btn-default" onclick="window.history.back()"
+                            <button type="reset" class="btn btn-default" onclick="history.go(-1)"
                                     style="margin-top:5%;">Annulla
                             </button>
                             <button type="submit" class="btn btn-default" style="margin-top:5%;">Aggiorna</button>

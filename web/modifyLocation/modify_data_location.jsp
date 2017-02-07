@@ -26,8 +26,8 @@
         mlc.modifyLocation(2, description, rooms, toilets, people, beds, price, wifi, animals,
                 roomService, view, smoking, parking, conditionedAir, plasmaTv);
 
-        request.getRequestDispatcher("../registration/registration.jsp").forward(request, response);
         //TODO rimandare alla pagina precedente
+        request.getRequestDispatcher("../registration/registration.jsp").forward(request, response);
     } catch (Exception e) {
         e.printStackTrace();
     }

@@ -23,7 +23,7 @@
     attributes.put("address", address);
     attributes.put("date", date);
     attributes.put("email", email);
-    //no username
+    //no username!
     attributes.put("password", password);
     attributes.put("iban", iban);
     attributes.put("scout", scout);
@@ -46,8 +46,8 @@
             rc.addNewUser(name, surname, city, address, gregorianCalendar, email, username, password, password, iban, scout);
             userBean.setUsername(username);
             session.setAttribute("userBean", userBean);
-            request.getRequestDispatcher("../managementLocation/managementLocation.jsp").forward(request, response);
-            //TODO rimandare al login
+            request.setAttribute("registration_done", username); //TODO prenderlo in signin.jsp come faccio per username_not_valid in registration.jsp!
+            request.getRequestDispatcher("../signin/signin.jsp").forward(request, response);
         } else {
             request.setAttribute("username_not_valid", username);
             request.getRequestDispatcher("registration.jsp").forward(request, response);

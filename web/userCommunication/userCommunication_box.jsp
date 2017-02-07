@@ -11,7 +11,7 @@
     <script src="UserCommunicationControl.js"></script>
 </head>
 <body>
-<jsp:include page="../navigationBar.jsp"/>
+<jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid" style="margin-top: 5%">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
@@ -72,8 +72,9 @@
                             <div class="col-sm-0.5"></div>
                         </div>
                         <div style="text-align: center">
-                            <button type="reset" class="btn btn-default" onclick="window.history.back()"
-                                    style="margin-top:3%; margin-bottom:2%">Annulla
+                            <button type="reset" class="btn btn-default" onclick="history.go(-1)"
+                                    style="margin-top:3%; margin-bottom:2%">
+                                Annulla
                             </button>
                             <button type="submit" class="btn btn-default" style="margin-top:3%; margin-bottom:2%">
                                 Invia

@@ -45,8 +45,8 @@ public class PaymentForm {
 
         jButton_englishLanguage.addActionListener(e -> {
 
-                    LanguageController.setEnglishLanguage();
-                    setLabelTextLanguagePayment();
+            LanguageController.setEnglishLanguage();
+            setLabelTextLanguagePayment();
                 }
 
         );
@@ -75,7 +75,7 @@ public class PaymentForm {
         return panelMain;
     }
 
-    private void setLabelTextLanguagePayment() {
+    private void setLabelTextLanguagePayment(){
         jLabel_payment.setText(PaymentLanguage.payment_payment);
         jLabel_creditCardFirstNameOwnerPayment.setText(PaymentLanguage.payment_nameOwner);
         jLabel_creditCardLastNameOwnerPayment.setText(PaymentLanguage.payment_surnameOwner);

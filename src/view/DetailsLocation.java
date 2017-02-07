@@ -44,7 +44,7 @@ public class DetailsLocation {
     private TorVergataRentController tvrc;
 
 
-    public DetailsLocation(Location locationForStructure) {
+    public DetailsLocation(Location locationForStructure){
 
         JTextArea_Description.setText(locationForStructure.getDescription());
         JLabel_NUmberOfRoom.setText(String.valueOf((locationForStructure.getNumOfRooms())));
@@ -104,6 +104,7 @@ public class DetailsLocation {
         jCheckBox_ConditionedAir.setText(DetailsLocationLanguage.details_conditionedAir);
         jCheckBox_RoomService.setText(DetailsLocationLanguage.details_roomService);
     }
+
 
 
 }

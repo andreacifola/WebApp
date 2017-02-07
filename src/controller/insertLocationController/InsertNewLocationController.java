@@ -1,6 +1,7 @@
-package controller.insertLocationController;
+package controller.InsertLocationController;
 
 import dataSource.DataSource;
+import model.insertNewLocation.AvailableTime;
 import model.insertNewLocation.Location;
 import model.insertNewLocation.Service;
 import querySQL.Query;
@@ -11,17 +12,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 /**
  * Created by tizianoditoma on 06/09/16.
  */
 public class InsertNewLocationController {
-    private static LocationForStructure locationForStructure;
+    private LocationForStructure locationForStructure;
 
     public InsertNewLocationController(LocationForStructure locationForStructure) {
-        InsertNewLocationController.locationForStructure = locationForStructure;
+        this.locationForStructure = locationForStructure;
     }
 
     public static boolean checkFields(String numOfRoom, String numOfBath, String numMaxGuest, String numBeds, String price) {
@@ -59,13 +59,13 @@ public class InsertNewLocationController {
         }
     }
 
-    public static boolean addNewLocation(String description, String numOfRoom, String numOfBath, String numMaxGuest,
-                                         String numBeds, String price, Date from, Date to, Service service, Integer idStructure) {
+    public boolean addNewLocation(String description, String numOfRoom, String numOfBath, String numMaxGuest,
+                                  String numBeds, String price, AvailableTime availability, Service service, Integer idStructure) {
         if (checkFields(numOfRoom, numOfBath, numMaxGuest, numBeds, price)) {
             Connection connection = DataSource.getConnection();
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(Query.addNewLocation);
-
+                //TODO controlla ID
                 preparedStatement.setString(1, description);
                 preparedStatement.setInt(2, Integer.parseInt(numOfRoom));
                 preparedStatement.setInt(3, Integer.parseInt(numOfBath));
@@ -85,24 +85,13 @@ public class InsertNewLocationController {
                 preparedStatement.execute();
                 preparedStatement.clearParameters();
 
-                Location locationAdded = new Location(description, Integer.parseInt(numOfRoom), Integer.parseInt(numOfBath), Integer.parseInt(numMaxGuest),
-                        Integer.parseInt(numBeds), Double.parseDouble(price), service, null, new ArrayList<>());
-
-
                 //TODO INSERISCI AVAILABILITY
-                //PreparedStatement preparedStatement1 = connection.prepareStatement(Query.addAvailability);
 
+                Location locationToAdd = new Location(description, Integer.parseInt(numOfRoom), Integer.parseInt(numOfBath), Integer.parseInt(numMaxGuest), Integer.parseInt(numBeds),
+                        Double.parseDouble(price), service, availability, new ArrayList<>());
+                this.locationForStructure.getStructure().getLocations().add(locationToAdd);
+                this.locationForStructure.loadLocation(this.locationForStructure.getStructure());
 
-                //preparedStatement1.setDate(1, (java.sql.Date) from);
-                //preparedStatement1.setDate(2, (java.sql.Date) to);
-                //preparedStatement1.setInt(3, locationId);
-
-                //preparedStatement1.execute();
-                //preparedStatement1.clearParameters();
-                //Location locationToAdd = new Location(description, Integer.parseInt(numOfRoom), Integer.parseInt(numOfBath), Integer.parseInt(numMaxGuest), Integer.parseInt(numBeds),
-                //        Double.parseDouble(price), service, availability, new ArrayList<>());
-                //locationForStructure.getStructure().getLocations().add(locationToAdd);
-                //locationForStructure.loadLocation(locationForStructure.getStructure());
 
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -1,26 +1,37 @@
 package controller.managementProfile;
 
+import controller.UtilityMD5;
 import dataSource.DataSource;
 import model.User;
 import model.language.managementProfile.ManagementProfileLanguage;
+import model.payment.IBANCredentialNotValid;
 import querySQL.Query;
 
+import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 
+
+/**
+ * Created by luca on 09/09/16.
+ */
 public class ManagementProfileController {
 
     private final static String EMAIL_PATTERN =
             "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 
-    public static boolean modifyData(String name, String surname, String city, String address, Date birthdate, String email, String password, String iban,
-                                     User user) {
+    public static boolean modifyData (String name, String surname, String city, String address,Date birthdate, String email, String password, String iban,
+                                   User user) {
 
         if (checkFields(name, surname, city, birthdate, email, password)) {
             try {
@@ -48,10 +59,10 @@ public class ManagementProfileController {
     public static boolean checkMajorAge(Date birthDate) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(birthDate);
-        calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) + 18);
+        calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR)+18);
 
         Calendar now = Calendar.getInstance();
-        long difference = now.getTimeInMillis() - calendar.getTimeInMillis();
+        long difference = now.getTimeInMillis()-calendar.getTimeInMillis();
 
 
         return difference > 0;
@@ -70,7 +81,7 @@ public class ManagementProfileController {
     }
 
     private static boolean checkFields(String name, String surname, String city, Date birthDate,
-                                       String email, String password1) {
+                                      String email, String password1) {
         if (!isAlpha(name) || name.isEmpty()) {
             JOptionPane.showMessageDialog(null, ManagementProfileLanguage.managementProfile_invalidName);
             return false;
@@ -91,7 +102,7 @@ public class ManagementProfileController {
             JOptionPane.showMessageDialog(null, ManagementProfileLanguage.managementProfile_invalidEmail);
             return false;
         }
-        if (!minLength(password1, 6)) {
+        if (!minLength(password1,6)) {
             JOptionPane.showMessageDialog(null, ManagementProfileLanguage.managementProfile_invalidPassword);
             return false;
         }

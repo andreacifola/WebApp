@@ -4,9 +4,9 @@ package querySQL;
 public class Query {
     public static final String findRegisteredUser = "SELECT * FROM public.user WHERE username = ? and password = ?";
     public static final String countUsername = "SELECT count(*) FROM public.user WHERE username = ?";
-    public static final String addNewUser = "INSERT INTO public.user(name,surname,city,address,birthdate,email,username,password,IBAN) " +
-            "VALUES (?,?,?,?,?,?,?,?,?) ON CONFLICT(username) DO UPDATE SET name=EXCLUDED.name, surname=EXCLUDED.surname, city=EXCLUDED.city, " +
-            "address=EXCLUDED.address, birthdate=EXCLUDED.birthdate, email=EXCLUDED.email, password=EXCLUDED.password, iban=EXCLUDED.iban";
+    public static final String addNewUser = "INSERT INTO public.user(name,surname,city,address,birthdate,email,username,password,IBAN,scout) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?) ON CONFLICT(username) DO UPDATE SET name=EXCLUDED.name, surname=EXCLUDED.surname, city=EXCLUDED.city, " +
+            "address=EXCLUDED.address, birthdate=EXCLUDED.birthdate, email=EXCLUDED.email, password=EXCLUDED.password, iban=EXCLUDED.iban, scout=EXCLUDED.scout";
     public static final String findStructures = "SELECT * FROM public.structure";
     public static final String findUserByUsername = "SELECT * FROM public.user WHERE username= ?";
     public static final String findLocationByStructure = "SELECT * FROM public.location WHERE structure = ?";

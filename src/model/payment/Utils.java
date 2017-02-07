@@ -21,7 +21,7 @@ class Utils {
 
     static Date parseDate(String date) throws ParseException {
         if (date.length() != 5 || ((Integer.valueOf(date.substring(0, 2)) > 12)) || ((Integer.valueOf(date.substring(0, 2)) < 1)))
-            throw new ParseException(date, 0);
+            throw new ParseException(date,0);
         return new SimpleDateFormat("MM/yy").parse(date);
     }
 }

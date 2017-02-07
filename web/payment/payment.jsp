@@ -13,15 +13,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="../navigationBar.jsp"/>
+<jsp:include page="../navigation_bar.jsp"/>
 <div class="container" style="margin-top: 10%; width: 30%">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Inserisci le informazioni richieste</h3>
         </div>
         <div class="panel-body">
-            <form class="col-sm-12" method="get" action="checkout.jsp" onsubmit="return NomeCheck()">
-                <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
+            <form class="col-sm-12" method="get" action="checkout.jsp" onsubmit="return NomeCheck()"> <!-- style="background-color: rgba(36,154,96,0.55); border-radius: 2%;"> -->
                 <div class="form-group">
                     <div class="row">
                         <label class="control-label">Numero di carta di credito:</label>

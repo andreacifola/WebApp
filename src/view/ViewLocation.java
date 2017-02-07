@@ -61,7 +61,7 @@ public class ViewLocation {
         return JPanel_Main;
     }
 
-    private void setLabelTextLanguageViewLocation() {
+    private void setLabelTextLanguageViewLocation(){
         jButton_Delete.setText(ViewLocationLanguage.viewLocation_delete);
         jButton_DetailsLocation.setText(ViewLocationLanguage.viewLocation_details);
         jButton_Modify.setText(ViewLocationLanguage.viewLocation_modify);

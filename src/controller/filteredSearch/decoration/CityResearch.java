@@ -28,7 +28,7 @@ public class CityResearch extends Decorator {
     }
 
     @Override
-    public ArrayList<Structure> search() throws IBANCredentialNotValid, SQLException {
+    public ArrayList<Structure> search() throws SQLException {
         return filterResearchCity(super.search());
     }
 }

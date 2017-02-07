@@ -10,13 +10,13 @@ public class Address {
     private String region;
     private String address;
 
-    public Address(String region, String city, String address, String houseNum, String CAP) {
+    public Address(String region, String city, String address, String houseNum, String CAP ){
 
         this.region = region;
         this.city = city;
         this.address = address;
         this.houseNum = houseNum;
-        this.CAP = CAP;
+        this.CAP =CAP;
     }
 
     public String getCAP() {

@@ -1,6 +1,6 @@
 package view;
 
-import controller.insertStructureController.InsertNewStructureController;
+import controller.InsertStructureController.InsertNewStructureController;
 import controller.language.LanguageController;
 import controller.torVergataRent.TorVergataRentController;
 import model.language.formStructure.FormStructureLanguage;
@@ -39,6 +39,7 @@ public class FormStructure {
     private TorVergataRentController tvrc;
 
 
+
     public FormStructure(JFrame frame) {
 
         setLabelTextLanguageFormStructure();
@@ -67,8 +68,6 @@ public class FormStructure {
                         Integer.valueOf(JTextField_NumberOfHouse.getText().trim()), Integer.valueOf(JTextField_CAP.getText().trim())))
                     ;
                 JOptionPane.showMessageDialog(null, FormStructureLanguage.formStructure_newStructureAdded);
-
-
                 frame.setVisible(false);
                 frame.dispose();
                 //TODO torna da qualche parte

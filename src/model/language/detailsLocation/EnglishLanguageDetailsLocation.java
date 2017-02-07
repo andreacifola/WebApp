@@ -10,7 +10,7 @@ public class EnglishLanguageDetailsLocation extends DetailsLocationLanguage {
 
         details_details = "Details";
         details_description = "Description";
-        details_numberOfRooms = "Number of rooms";
+        details_numberOfRooms ="Number of rooms";
         details_maximumGuests = "Number of people";
         details_Wifi = "WiFi";
         details_parking = "Parking";

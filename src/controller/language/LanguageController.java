@@ -34,7 +34,7 @@ import model.language.viewReservation.ItalianLanguageViewReservation;
 
 public class LanguageController {
 
-    public static void setItalianLanguage() {
+    public static void setItalianLanguage(){
         new ItalianLanguageFilteredSearch();
         new ItalianLanguageFormLocation();
         new ItalianLanguageFormStructure();
@@ -53,7 +53,7 @@ public class LanguageController {
 
     }
 
-    public static void setEnglishLanguage() {
+    public static void setEnglishLanguage(){
         new EnglishLanguageFilteredSearch();
         new EnglishLanguageFormLocation();
         new EnglishLanguageFormStructure();

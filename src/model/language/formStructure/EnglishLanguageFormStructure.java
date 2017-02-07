@@ -3,9 +3,9 @@ package model.language.formStructure;
 /**
  * Created by luca on 09/09/16.
  */
-public class EnglishLanguageFormStructure extends FormStructureLanguage {
+public class EnglishLanguageFormStructure extends FormStructureLanguage{
 
-    public EnglishLanguageFormStructure() {
+    public EnglishLanguageFormStructure(){
         formStructure_name = "Name";
         formStructure_region = "Region";
         formStructure_city = "City";

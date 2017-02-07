@@ -26,8 +26,8 @@ public class AddFeedback {
         jButton_confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                feedbackController.storeFeedback(jStarRater.getSelection(), jTextPane_description.getText().trim());
-                feedbackController.getFrame().dispose();
+                //feedbackController.storeFeedback(jStarRater.getSelection(), jTextPane_description.getText().trim());
+                //feedbackController.getFrame().dispose();
             }
         });
     }
@@ -44,7 +44,7 @@ public class AddFeedback {
         return jPanelMain;
     }
 
-    private void setLabelTextLanguageFeedback() {
+    private void setLabelTextLanguageFeedback(){
         jLabel_rating.setText(FeedbackLanguage.feedback_rating);
         jLabel_description.setText(FeedbackLanguage.feedback_description);
         jButton_confirm.setText(FeedbackLanguage.feedback_confirm);

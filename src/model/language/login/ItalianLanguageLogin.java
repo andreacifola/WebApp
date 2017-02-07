@@ -3,7 +3,7 @@ package model.language.login;
 /**
  * Created by luca on 09/09/16.
  */
-public class ItalianLanguageLogin extends LoginLanguage {
+public class ItalianLanguageLogin extends LoginLanguage{
 
     public ItalianLanguageLogin() {
         login_login = "Login";

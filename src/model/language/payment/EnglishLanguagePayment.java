@@ -5,7 +5,7 @@ package model.language.payment;
  */
 public class EnglishLanguagePayment extends PaymentLanguage {
 
-    public EnglishLanguagePayment() {
+    public EnglishLanguagePayment(){
 
         payment_payment = "Payment";
         payment_amount = "Amount";

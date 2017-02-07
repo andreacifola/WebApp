@@ -5,21 +5,16 @@
     <div class="caption" style="margin-right: -2%">
         <div class="col-sm-10" style="display: inline-block; float: none; vertical-align: middle">
             <div class="row">
-                <label><h4 class="card-title"><%=structuresBean.getStructures().get(index).getName()%>
-                </h4></label>
+                <label><h4 class="card-title"><%=structuresBean.getStructures().get(index).getName()%></h4></label>
                 <span class="glyphicon glyphicon-check" style="margin-left: 2%"></span>
-                <h6><%=structuresBean.getStructures().get(index).getAddress()%>
-                </h6>
-                <p class="card-text" align="justify"><%=structuresBean.getStructures().get(index).getDescription()%>
-                </p>
+                <h6><%=structuresBean.getStructures().get(index).getAddress()%></h6>
+                <p class="card-text" align="justify"><%=structuresBean.getStructures().get(index).getDescription()%></p>
             </div>
         </div><!--Lasciare questo commento così com'è, influenza in qualche modo il rendering
-        -->
-        <div class="col-sm-2" style="display: inline-block; float: none;">
+        --><div class="col-sm-2" style="display: inline-block; float: none;">
             <div class="row" style="text-align: center">
                 <form method="get" action="location_search.jsp">
-                    <button type="submit" name="structureindex" value="<%=index%>" class="btn btn-primary">Seleziona
-                    </button>
+                    <button type="submit" name="structureindex" value="<%=index%>" class="btn btn-primary">Seleziona</button>
                 </form>
             </div>
         </div>

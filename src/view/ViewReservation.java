@@ -38,7 +38,7 @@ public class ViewReservation {
         return JPanel_Main;
     }
 
-    private void setLabelTextLanguageViewReservation() {
+    private void setLabelTextLanguageViewReservation(){
         jLabel_From.setText(ViewReservationLanguage.viewReservation_locationReservation);
         jLabel_Price.setText(ViewReservationLanguage.viewReservation_price);
         jLabel_To.setText(ViewReservationLanguage.viewReservation_to);

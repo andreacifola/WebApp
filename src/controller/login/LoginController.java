@@ -5,6 +5,7 @@ import dataSource.DataSource;
 import model.User;
 import model.payment.IBANCredentialNotValid;
 import querySQL.Query;
+import sun.text.normalizer.Utility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +16,8 @@ import java.sql.SQLException;
 
 public class LoginController {
 
-    public static User LoginController(String username, String password) throws IBANCredentialNotValid {
-        try {
+    public static User LoginController (String username, String password) throws IBANCredentialNotValid {
+        try{
             PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.findRegisteredUser);
             statement.setString(1, username);
             statement.setString(2, UtilityMD5.stringByHashingPassword(password));

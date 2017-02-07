@@ -77,11 +77,12 @@ public class Login {
                 try {
                     User loggedUser = LoginController.LoginController(jTextField_Username.getText().trim(),
                             String.valueOf(jPasswordField_Password.getPassword()));
-                    if (loggedUser != null) {
+                    if (loggedUser != null){
                         frame.setVisible(false);
                         frame.dispose();
-                        new TorVergataRentController(loggedUser);
-                    } else {
+                       new TorVergataRentController(loggedUser);
+                    }
+                    else{
                         JOptionPane.showMessageDialog(new Frame(), LoginLanguage.login_invalidCredential);
                     }
                 } catch (IBANCredentialNotValid ibanCredentialNotValid) {
@@ -91,7 +92,7 @@ public class Login {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main (String[] args){
         JFrame frame = new JFrame();
         frame.setContentPane(new Login(frame).getPanelMain());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -103,7 +104,7 @@ public class Login {
         return panelMain;
     }
 
-    private void setLabelTextLanguageLogin() {
+    private void setLabelTextLanguageLogin(){
         jLabel_Login.setText(LoginLanguage.login_login);
         jLabel_Password.setText(LoginLanguage.login_password);
         jLabel_Username.setText(LoginLanguage.login_username);

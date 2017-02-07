@@ -1,4 +1,4 @@
-package controller.insertLocationController;
+package controller.InsertLocationController;
 
 import controller.filteredSearch.FilteredSearchController;
 import dataSource.DataSource;
@@ -18,7 +18,6 @@ public class FindStructureByUsername {
 
     public FindStructureByUsername() {
     }
-
     public ArrayList<Structure> findStructureByUsername(String username) throws SQLException, IBANCredentialNotValid {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findStructuresByUsername);
         preparedStatement.setString(1, username);

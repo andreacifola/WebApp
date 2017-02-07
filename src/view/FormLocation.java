@@ -1,15 +1,22 @@
 package view;
 
-import controller.insertLocationController.InsertNewLocationController;
+import controller.InsertLocationController.InsertNewLocationController;
 import controller.language.LanguageController;
 import controller.torVergataRent.TorVergataRentController;
+import model.insertNewLocation.AvailableTime;
 import model.insertNewLocation.Service;
 import model.insertNewLocation.Structure;
 import model.language.formLocation.FormLocationLanguage;
+import org.jdatepicker.impl.DateComponentFormatter;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Properties;
 
 /**
  * Created by tizianoditoma on 05/09/16.
@@ -51,7 +58,10 @@ public class FormLocation {
     private JLabel JLabel_Available;
     private JLabel JField_InserireNuovaLocazione;
     private TorVergataRentController tvrc;
+    private JDatePickerImpl jDatePicker_fromDate;
+    private JDatePickerImpl jDatePicker_toDate;
     private Structure structure;
+
 
 
     public FormLocation(LocationForStructure locationForStructure, JFrame frame, Structure structure) {
@@ -74,6 +84,8 @@ public class FormLocation {
             }
         });
         JButton_AddNewLocation.addActionListener(e -> {
+            Date fromAvailability = (Date) jDatePicker_fromDate.getModel().getValue();
+            Date toAvailability = (Date) jDatePicker_toDate.getModel().getValue();
 
             String description = JTextArea_Description.getText().trim(),
                     rooms = JTextField_NumberOfRooms.getText().trim(),
@@ -82,20 +94,34 @@ public class FormLocation {
                     bed = JTextField_NumberOfBed.getText().trim(),
                     price = JTextField_Price.getText().trim();
             Integer idStructure = structure.getId();
-            Service service = new Service(JCheckBox_Wifi.isSelected(), JCheckBox_SmokingRoom.isSelected(),
-                    JCheckBox_PetsAllowed.isSelected(), JCheckBox_Parking.isSelected(), JCheckBox_RoomService.isSelected(),
-                    JCheckBox_ConditionedAir.isSelected(), JCheckBox_View.isSelected(), JCheckBox_PlasmaTv.isSelected());
+            AvailableTime availableTime = new AvailableTime(fromAvailability, toAvailability);
+            Service service = new Service(JCheckBox_Wifi.isSelected(), JCheckBox_SmokingRoom.isSelected(), JCheckBox_PetsAllowed.isSelected(), JCheckBox_Parking.isSelected(), JCheckBox_RoomService.isSelected(), JCheckBox_ConditionedAir.isSelected(), JCheckBox_View.isSelected(), JCheckBox_PlasmaTv.isSelected());
 
-            InsertNewLocationController.addNewLocation(description, rooms, bath, maxGuest, bed, price, null, null, service, idStructure);
 
-            JOptionPane.showMessageDialog(null, FormLocationLanguage.formLocation_newLocationAdded);
-            frame.setVisible(false);
-            frame.dispose();
+            if (new InsertNewLocationController(locationForStructure).addNewLocation(description, rooms, bath, maxGuest, bed, price, availableTime, service, idStructure)) {
 
+                JOptionPane.showMessageDialog(null, FormLocationLanguage.formLocation_newLocationAdded);
+                frame.setVisible(false);
+                frame.dispose();
+            }
             //TODO torna da qualche parte
         });
     }
 
+    private void createUIComponents() {
+        jDatePicker_fromDate = datePickerCustomization();
+        jDatePicker_toDate = datePickerCustomization();
+    }
+
+    private JDatePickerImpl datePickerCustomization() {
+        UtilDateModel model = new UtilDateModel();
+        Properties properties = new Properties();
+        properties.put("text.today", "Today");
+        properties.put("text.month", "Month");
+        properties.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
+        return new JDatePickerImpl(datePanel, new DateComponentFormatter());
+    }
 
     private void openPreviousFrame(TorVergataRentController tvrc) {
         JFrame frame = new JFrame();
@@ -112,7 +138,6 @@ public class FormLocation {
     public Structure getStructure() {
         return structure;
     }
-
     private void setLabelTextLanguageFormLocation() {
         JField_InserireNuovaLocazione.setText(FormLocationLanguage.formLocation_addNewLocation);
         JLabel_Description.setText(FormLocationLanguage.formLocation_description);

@@ -34,7 +34,7 @@ public class FilteredSearchController {
         return feedbacks;
     }
 
-    public static User retrieveOwnerInfoByUsername(String u_username) throws SQLException, IBANCredentialNotValid {
+    public static User retrieveOwnerInfoByUsername(String u_username) throws SQLException{
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findUserByUsername);
         preparedStatement.setString(1, u_username);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -46,8 +46,13 @@ public class FilteredSearchController {
                     u_email = resultSet.getString("email"),
                     u_password = resultSet.getString("password"),
                     u_iban = resultSet.getString("iban");
+            Boolean u_scout = resultSet.getBoolean("scout");
             Date u_date = resultSet.getDate("birthdate");
-            return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban);
+            try {
+                return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban, u_scout);
+            } catch (IBANCredentialNotValid ibanCredentialNotValid) {
+                ibanCredentialNotValid.printStackTrace();
+            }
         }
         throw new SQLException();
     }
@@ -97,7 +102,7 @@ public class FilteredSearchController {
         return availability;
     }
 
-    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException, IBANCredentialNotValid {
+    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException{
         Integer s_id = resultSet.getInt("id");
         String s_name = resultSet.getString("name"),
                 s_owner = resultSet.getString("owner"),
@@ -114,7 +119,7 @@ public class FilteredSearchController {
         return new Structure(s_id, s_name, s_region, s_city, s_address, s_housenumber, s_cap, owner, s_description, locations);
     }
 
-    protected ArrayList<Structure> search() throws SQLException, IBANCredentialNotValid {
+    protected ArrayList<Structure> search() throws SQLException{
         PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.findStructures);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Structure> structures = new ArrayList<>();
@@ -126,7 +131,7 @@ public class FilteredSearchController {
 
     public ArrayList<Structure> startResearch(Date from, Date to, String region, String city, String name, Integer rooms, Integer baths, Integer maxGuests, Integer beds,
                                               Integer maxPrice, Boolean wifi, Boolean smoking, Boolean petsAllowed, Boolean parking, Boolean roomService,
-                                              Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws IBANCredentialNotValid, SQLException {
+                                              Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws SQLException {
 
         FilteredSearchController fsc = new FilteredSearchController();
         fsc = new PriceResearch(maxPrice, fsc);

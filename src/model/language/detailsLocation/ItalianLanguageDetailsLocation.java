@@ -1,5 +1,7 @@
 package model.language.detailsLocation;
 
+import controller.filteredSearch.decoration.PlasmaTVResearch;
+
 /**
  * Created by luca on 15/09/16.
  */
@@ -9,7 +11,7 @@ public class ItalianLanguageDetailsLocation extends DetailsLocationLanguage {
 
         details_details = "Dettagli";
         details_description = "Descrizione";
-        details_numberOfRooms = "Numero di stanze";
+        details_numberOfRooms ="Numero di stanze";
         details_maximumGuests = "Numero di persone";
         details_Wifi = "WiFi";
         details_parking = "Parcheggio";

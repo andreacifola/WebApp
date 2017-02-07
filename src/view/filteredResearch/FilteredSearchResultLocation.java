@@ -100,8 +100,12 @@ public class FilteredSearchResultLocation {
                 new UsersCommunicationForm(mainView.getTorVergataRentController().getLoggedUser(), owner);
             }
         });
-        jButton_addFeedback.addActionListener(e ->
-                new FeedbackController(this, mainView.getTorVergataRentController().getLoggedUser(), location));
+        jButton_addFeedback.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //new FeedbackController(this, mainView.getTorVergataRentController().getLoggedUser(), location)
+            }
+        });
 
         jButton_Reserve.addActionListener(new ActionListener() {
             @Override
@@ -125,7 +129,7 @@ public class FilteredSearchResultLocation {
         jScrollPane_feedback.setViewportView(jPanel_feedbackContainer);
     }
 
-    private void setLabelTextLanguageFilteredSearchResultLocation() {
+    private void setLabelTextLanguageFilteredSearchResultLocation(){
         jButton_sendEmail.setText(FilteredSearchResultLocationLanguage.filteredSearchResultLocation_sendEmail);
         jButton_addFeedback.setText(FilteredSearchResultLocationLanguage.filteredSearchResultLocation_addFeedback);
         jButton_Reserve.setText(FilteredSearchResultLocationLanguage.filteredSearchResultLocation_reserve);

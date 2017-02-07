@@ -1,8 +1,8 @@
 package view;
 
+import controller.InsertLocationController.FindStructureByUsername;
 import controller.ReservationController.FindReservationByUsername;
 import controller.filteredSearch.FilteredSearchController;
-import controller.insertLocationController.FindStructureByUsername;
 import controller.language.LanguageController;
 import controller.managementProfile.ManagementProfileController;
 import controller.torVergataRent.TorVergataRentController;
@@ -16,6 +16,10 @@ import model.language.managementProfile.ManagementProfileLanguage;
 import model.language.usersCommunicationForm.UsersCommunicationFormLanguage;
 import model.language.viewReservation.ViewReservationLanguage;
 import model.payment.IBANCredentialNotValid;
+import org.jdatepicker.impl.DateComponentFormatter;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 import querySQL.Query;
 import view.filteredResearch.FilteredSearchResultStructure;
 
@@ -29,6 +33,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 
 //import controller.managementProfile.ModifyPasswordController;
 
@@ -110,9 +115,12 @@ public class TorVergataRent {
     private JButton jButton_cancelProfile;
     private JPasswordField jPasswordField_newPassword;
     private JTextField jTextField_iban;
+    private JDatePickerImpl jDatePicker_ResearchFrom;
+    private JDatePickerImpl jDatePicker_ResearchTo;
     private JPanel JContainer_Reservation;
     private JLabel jLabel_fromdate;
     private JLabel jLabel_todate;
+    private JDatePickerImpl jDatePicker_BirthdateManagementProfile;
     private JLabel jTextField_managementProfile;
     private JLabel jLabel_surnameProfile;
     private JLabel jLabel_addressProfile;
@@ -125,6 +133,7 @@ public class TorVergataRent {
     private JLabel jLabel_ibanProfile;
     private JButton jButton_confirmProfile;
     private TorVergataRentController torVergataRentController;
+
 
 
     public TorVergataRent(JFrame frame, TorVergataRentController tvrc) {
@@ -165,11 +174,15 @@ public class TorVergataRent {
                 ArrayList<Structure> foundedStructures = null;
 
                 Date fromDate = null, toDate = null;
-
+                try {
+                    //fromDate = (Date) jDatePicker_ResearchFrom.getModel().getValue();
+                    //toDate = (Date) jDatePicker_ResearchTo.getModel().getValue();
+                } catch (NullPointerException ignored) {
+                }
                 try {
                     foundedStructures = filteredSearchController.startResearch(fromDate, toDate, region, city, name, rooms, baths,
                             maxGuests, beds, maxPrice, wifi, smoking, petsAllowed, parking, roomService, conditionedAir, views, plasmaTV);
-                } catch (IBANCredentialNotValid | SQLException ex) {
+                } catch (SQLException ex) {
                     ex.printStackTrace();
                 } finally {
                     showFilteredResearchResults(foundedStructures, fromDate, toDate);
@@ -221,8 +234,9 @@ public class TorVergataRent {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String password = tvrc.getLoggedUser().getPassword();
+                Date birthdate = (Date) jDatePicker_BirthdateManagementProfile.getModel().getValue();
                 if (ManagementProfileController.modifyData(jTextField_Name.getText().trim(), jTextField_Surname.getText().trim(),
-                        jTextField_City.getText().trim(), jTextField_Address.getText().trim(), null, jTextField_email.getText().trim(),
+                        jTextField_City.getText().trim(), jTextField_Address.getText().trim(), birthdate, jTextField_email.getText().trim(),
                         ((JTextField) jPasswordField_newPassword).getText().trim(),
                         jTextField_iban.getText().trim(), tvrc.getLoggedUser())) {
                     JOptionPane.showMessageDialog(null, "data modified");
@@ -357,7 +371,7 @@ public class TorVergataRent {
 
 
     public static void main(String[] args) throws IBANCredentialNotValid {
-        new TorVergataRentController(new User("Andrea", "Cifola", "Roma", "Via Ferla 11", new Date(1994, 7, 19), "cifola.andrea@gmail.com", "andreacifola", "password", "IT60X0542811101000000123456"));
+        new TorVergataRentController(new User("Andrea", "Cifola", "Roma", "Via Ferla 11", new Date(1994, 7, 19), "cifola.andrea@gmail.com", "andreacifola", "password", "IT60X0542811101000000123456", false));
     }
 
     private void showFilteredResearchResults(ArrayList<Structure> structuresToShow, Date fromDate, Date toDate) {
@@ -400,6 +414,21 @@ public class TorVergataRent {
         return panelMain;
     }
 
+    private void createUIComponents() {
+        jDatePicker_ResearchFrom = datePickerCustomization();
+        jDatePicker_ResearchTo = datePickerCustomization();
+        jDatePicker_BirthdateManagementProfile = datePickerCustomization();
+    }
+
+    private JDatePickerImpl datePickerCustomization() {
+        UtilDateModel model = new UtilDateModel();
+        Properties properties = new Properties();
+        properties.put("text.today", "Today");
+        properties.put("text.month", "Month");
+        properties.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
+        return new JDatePickerImpl(datePanel, new DateComponentFormatter());
+    }
 
     public TorVergataRentController getTorVergataRentController() {
         return torVergataRentController;
@@ -410,13 +439,14 @@ public class TorVergataRent {
         jTextField_username.setDisabledTextColor(Color.BLACK);
     }
 
-    private void setField(User loggedUser) {
+    private void setField(User loggedUser){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(loggedUser.getBirthDate());
         jTextField_Name.setText(loggedUser.getName());
         jTextField_Surname.setText(loggedUser.getSurname());
         jTextField_City.setText(loggedUser.getCity());
         jTextField_Address.setText(loggedUser.getAddress());
+        jDatePicker_BirthdateManagementProfile.getModel().setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH) );
         jTextField_email.setText(loggedUser.getEmail());
         jTextField_username.setText(loggedUser.getUsername());
         jTextField_iban.setText(loggedUser.getIban().getNumber());

@@ -9,6 +9,7 @@ import querySQL.Query;
 import view.feedback.AddFeedback;
 import view.filteredResearch.FilteredSearchResultLocation;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,35 +21,11 @@ import java.util.Date;
  * Created by davidemagnanimi on 12/09/16 at 15:00.
  */
 public class FeedbackController {
-    private User user;
-    private Location location;
-    private FilteredSearchResultLocation filteredSearchResultLocation;
-    private JFrame frame;
 
-    public FeedbackController(FilteredSearchResultLocation filteredSearchResultLocation, User user, Location location) {
-        this.user = user;
-        this.location = location;
-        this.filteredSearchResultLocation = filteredSearchResultLocation;
-
-        try {
-            if (!checkDate())
-                JOptionPane.showMessageDialog(new JPanel(), FeedbackLanguage.feedack_cantInsertFeedback);
-            else {
-                Feedback loadedFeedback = loadFeedback();
-                frame = new JFrame();
-                frame.setContentPane(new AddFeedback(this, loadedFeedback).getjPanelMain());
-                frame.pack();
-                frame.setVisible(true);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private boolean checkDate() throws SQLException {
+    private boolean checkDate(String username, Integer locationID) throws SQLException {
         PreparedStatement ps = DataSource.getConnection().prepareStatement(Query.checkReservation);
-        ps.setString(1, user.getUsername());
-        ps.setInt(2, location.getId());
+        ps.setString(1, username);
+        ps.setInt(2, locationID);
         ResultSet resultSet = ps.executeQuery();
         while (resultSet.next()) {
             Date fromDate = resultSet.getDate("fromdate");
@@ -59,40 +36,28 @@ public class FeedbackController {
         return false;
     }
 
-    public boolean storeFeedback(Integer rating, String description) {
-        Feedback feedback = new Feedback(rating, description.trim(), this.user.getUsername());
+    public boolean storeFeedback(String username, Integer locationID, Integer rating, String description) {
+        /*
+        try {
+            if (!checkDate(username, locationID))
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        */
+        Feedback feedback = new Feedback(rating, description.trim(), username);
         try {
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.addFeedback);
             preparedStatement.setInt(1, feedback.getRating());
             preparedStatement.setString(2, feedback.getDescription());
             preparedStatement.setString(3, feedback.getUsername());
-            preparedStatement.setInt(4, this.location.getId());
+            preparedStatement.setInt(4, locationID);
 
             preparedStatement.execute();
-
-            for (Feedback feedback1 : location.getFeedbacks())
-                if (feedback1.getUsername().equals(user.getUsername())) {
-                    location.getFeedbacks().remove(feedback1);
-                    break;
-                }
-
-            this.location.getFeedbacks().add(feedback);
-            filteredSearchResultLocation.loadFeedback(location);
-
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
-    }
-
-    private Feedback loadFeedback() {
-        for (Feedback feedback : location.getFeedbacks())
-            if (feedback.getUsername().equals(user.getUsername()))
-                return feedback;
-        return null;
-    }
-
-    public JFrame getFrame() {
-        return frame;
     }
 }

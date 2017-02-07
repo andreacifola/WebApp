@@ -29,8 +29,10 @@
 
     Service service = new Service(wifi, smoking, animals, parking, roomService, conditionedAir, view, plasmaTv);
 
-    InsertNewLocationController.addNewLocation(descripton, String.valueOf(rooms), String.valueOf(toilets), String.valueOf(people),
-            String.valueOf(beds), String.valueOf(price), null, null, service, structureIndex);
+    InsertNewLocationController inlc = new InsertNewLocationController();
+
+    inlc.addNewLocation(descripton, String.valueOf(rooms), String.valueOf(toilets), String.valueOf(people),
+            String.valueOf(beds), String.valueOf(price), null, service, structureIndex);
 
     request.getRequestDispatcher("/management/managementLocation/location.jsp").forward(request, response);
 

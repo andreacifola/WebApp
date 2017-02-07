@@ -22,7 +22,7 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="25" style="margin-top: 5%">
-<jsp:include page="../../navigationBar.jsp"/>
+<jsp:include page="../../navigation_bar.jsp"/>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
 <%Integer structureIndex = Integer.valueOf(request.getParameter("structureindex"));%>
 

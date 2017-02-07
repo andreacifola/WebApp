@@ -1,6 +1,6 @@
 package view;
 
-import controller.InsertLocationController.FindStructureByUsername;
+import controller.insertLocationController.FindStructureByUsername;
 import controller.ReservationController.FindReservationByUsername;
 import controller.filteredSearch.FilteredSearchController;
 import controller.language.LanguageController;
@@ -223,7 +223,7 @@ public class TorVergataRent {
                 ArrayList<Structure> foundedStructureManagement = null;
                 try {
                     foundedStructureManagement = findStructureByUsernameManagement.findStructureByUsername(tvrc.getLoggedUser().getUsername());
-                } catch (IBANCredentialNotValid | SQLException ibanCredentialNotValid) {
+                } catch (SQLException ibanCredentialNotValid) {
                     ibanCredentialNotValid.printStackTrace();
                 } finally {
                     showStructure(foundedStructureManagement);

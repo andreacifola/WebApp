@@ -22,8 +22,4 @@ public class StructureListBean implements Serializable{
     public void setStructures(ArrayList<Structure> structures) {
         this.structures = structures;
     }
-
-    public ArrayList<Location> getLocation(Structure structure) {
-        return structure.getLocations();
-    }
 }

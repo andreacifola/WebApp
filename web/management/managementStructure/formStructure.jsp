@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<jsp:include page="../../navigationBar.jsp"/>
+<jsp:include page="../../navigation_bar.jsp"/>
 
 <div class="container-fluid" style="margin-top: 5%">
     <div class="col-sm-4">

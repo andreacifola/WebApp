@@ -25,7 +25,7 @@ Created by IntelliJ IDEA.
 
 <body data-spy="scroll" data-target=".navbar" data-offset="25" style="margin-top: 5%">
 
-<jsp:include page="../../navigationBar.jsp"/>
+<jsp:include page="../../navigation_bar.jsp"/>
 
 <div class="container-fluid " style="margin-top: 5%">
     <div class="col-sm-8 ">

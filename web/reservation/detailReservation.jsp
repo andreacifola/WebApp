@@ -25,7 +25,7 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="25" style="margin-top: 5%">
 
-<jsp:include page="../navigationBar.jsp"/>
+<jsp:include page="../navigation_bar.jsp"/>
 <jsp:useBean id="reservationBean" scope="session" class="bean.ReservationListBean"/>
 <%Integer reservationIndex = Integer.valueOf(request.getParameter("reservationIndex"));%>
 

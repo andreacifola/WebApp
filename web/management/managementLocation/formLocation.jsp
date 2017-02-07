@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<jsp:include page="../../navigationBar.jsp"/>
+<jsp:include page="../../navigation_bar.jsp"/>
 <%Integer structureIndex = Integer.valueOf(request.getParameter("structureindex"));%>
 
 

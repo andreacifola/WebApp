@@ -16,7 +16,7 @@ To change this template use File | Settings | File Templates.
 <%
     Integer id = Integer.valueOf(request.getParameter("id"));
     User user = new User("Tiziano", "Ditoma", "Roma", "Via Regalbuto 36", new Date(2019 - 05 - 14), "tiziano.ditoma@gmail.com",
-            "tiziano.ditoma", "9dbb300e28bc21c8dab41b01883918eb", "BR7724891749412660603618210F3");
+            "tiziano.ditoma", "9dbb300e28bc21c8dab41b01883918eb", "BR7724891749412660603618210F3",false);
 
     Location location = structuresBean.getStructures().get(structureIndex).getLocations().get(id);
     User owner = structuresBean.getStructures().get(structureIndex).getOwner();

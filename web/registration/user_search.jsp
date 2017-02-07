@@ -46,7 +46,6 @@
             rc.addNewUser(name, surname, city, address, gregorianCalendar, email, username, password, password, iban, scout);
             userBean.setUsername(username);
             session.setAttribute("userBean", userBean);
-            request.setAttribute("registration_done", username); //TODO prenderlo in signin.jsp come faccio per username_not_valid in registration.jsp!
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else {
             request.setAttribute("username_not_valid", username);

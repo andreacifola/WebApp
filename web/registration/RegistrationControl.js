@@ -13,6 +13,7 @@ function validateUser(form) {
     fail += validateUsername(form.username.value);
     fail += validatePassword(form.password.value);
     fail += validateMatchPassword(form.password.value, form.rptpassword.value);
+    fail += validateIBAN(form.iban.value);
     if (fail == "")
         return true;
     else {
@@ -110,4 +111,12 @@ function validateMatchPassword(field1, field2) {
     if (field1 === field2)
         return ("");
     return ("Passwords don't match");
+}
+
+function validateIBAN(field) {
+    if (field.trim() == "")
+        return "No IBAN was entered.\n";
+    else if (!/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}/.test(field))
+        return "Check right sequence for IBAN.\n";
+    return ""
 }

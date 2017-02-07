@@ -3,15 +3,23 @@ package bean;
 import java.io.Serializable;
 
 /**
- * Created by andreacifola on 11/01/17.
+ * Created by andreacifola on 06/02/17.
  */
 public class LetterBean implements Serializable {
-    private String object;
-    private String text;
+    String username, object, text;
 
-    public LetterBean() {
+    public LetterBean(String username, String object, String text) {
+        this.username = username;
         this.object = object;
         this.text = text;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getObject() {

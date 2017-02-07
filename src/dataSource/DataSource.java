@@ -13,7 +13,7 @@ public class DataSource {
             "jdbc:postgresql://localhost:5432/postgres"; //jdbc:postgresql://localhost:5432/ispw
 
     private static String user = "postgres",
-            password = "postgres";
+            password = "r.f.arredamenti";
 
     private static Connection connection = null;
 
@@ -28,6 +28,7 @@ public class DataSource {
         }
         return connection;
     }
+
 
     public static void main(String[] args) {
         for (int i = 0; i < 20; i++)

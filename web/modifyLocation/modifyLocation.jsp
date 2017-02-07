@@ -12,14 +12,14 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.4/css/bootstrap-slider.css">
 
-    <script src="ManagementLocationControl.js"></script>
+    <script src="ModifyLocationControl.js"></script>
 
 </head>
 <body>
 
 <jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
-    <jsp:include page="managementLocation_box.jsp"/>
+    <jsp:include page="modifyLocation_box.jsp"/>
 </div>
 
 </body>

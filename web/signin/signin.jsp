@@ -47,7 +47,7 @@
         </form>
         <div class="col-sm-3"></div>
         <div class="col-sm-9" align="right">
-        <h5>Non sei ancora registrato? <a href="#"> Registrati ora!</a> </h5>
+            <h5>Non sei ancora registrato? <a href="../registration/registration.jsp"> Registrati ora!</a></h5>
         </div>
 
     </div>

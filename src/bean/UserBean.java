@@ -6,7 +6,7 @@ public class UserBean implements Serializable {
     private String username;
 
     public UserBean() {
-        this.username = username;
+
     }
 
     public String getUsername() {

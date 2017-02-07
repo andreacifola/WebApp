@@ -167,7 +167,7 @@
                             <div class="col-sm-0.5"></div>
                         </div>
                         <div style="text-align: center">
-                            <button type="reset" onclick="window.history.back()" class="btn btn-default"
+                            <button type="reset" onclick="history.go(-1)" class="btn btn-default"
                                     style="margin-top:3%; margin-bottom:2%">Indietro
                             </button>
                             <button type="submit" class="btn btn-default" style="margin-top:3%; margin-bottom:2%">

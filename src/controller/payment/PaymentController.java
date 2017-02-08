@@ -14,56 +14,19 @@ import java.awt.*;
  */
 public class PaymentController {
     private Transaction transaction;
-    private PaymentObserver observer;
 
     public PaymentController(Double amount, User recipient) throws TransactionNotValid {
-        this.transaction = new Transaction(amount, null, recipient.getIban(), Status.Processing);
-        createView(String.format("%.2f", amount));
+        this.transaction = new Transaction(amount, null, recipient.getIban());
     }
 
-
-    private void createView(String amount) {
-        JFrame frame = new JFrame(PaymentLanguage.payment_payment);
-        frame.setContentPane(new PaymentForm(frame, this, amount).getPanelMain());
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    public void confirmForm(String cardNumber, String ownerFirstName, String ownerLastName, String expirationDate) {
+    public boolean confirmForm(String cardNumber, String firstName, String lastName, String expirationDate) {
         try {
-            CreditCard creditCard = new CreditCard(cardNumber, ownerFirstName, ownerLastName, expirationDate);
+            CreditCard creditCard = new CreditCard(cardNumber, firstName, lastName, expirationDate);
             transaction.setCreditCard(creditCard);
-            if (new CreditCardSociety(transaction).forwardPayment())
-                setTransactionStatus(Status.Approved);
-            else
-                setTransactionStatus(Status.Failed);
+            return new CreditCardSociety(transaction).forwardPayment();
         } catch (CreditCardCredentialNotValid creditCardCredentialNotValid) {
-            JOptionPane.showMessageDialog(new Frame(), creditCardCredentialNotValid.getMessage());
             creditCardCredentialNotValid.printStackTrace();
+            return false;
         }
-    }
-
-    public void attachObserver(PaymentObserver observer) {
-        this.observer = observer;
-    }
-
-    /*
-    public void detachObserver(){
-        this.observer = null;
-    }
-    */
-
-    public void setTransactionStatus(Status status) {
-        try {
-            this.observer.update(status);
-            this.transaction.setStatus(status);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
     }
 }

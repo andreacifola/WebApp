@@ -51,6 +51,7 @@ public class PaymentForm {
 
         );
 
+        /*
         jButton_cancelPayment.addActionListener(e ->
                 paymentController.setTransactionStatus(Status.Cancelled)
         );
@@ -68,6 +69,7 @@ public class PaymentForm {
                 paymentController.setTransactionStatus(Status.Cancelled);
             }
         });
+        */
 
     }
 

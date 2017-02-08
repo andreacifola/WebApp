@@ -37,14 +37,13 @@ public class FeedbackController {
     }
 
     public boolean storeFeedback(String username, Integer locationID, Integer rating, String description) {
-        /*
         try {
             if (!checkDate(username, locationID))
                 return false;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        */
         Feedback feedback = new Feedback(rating, description.trim(), username);
         try {
             PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.addFeedback);

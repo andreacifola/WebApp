@@ -6,12 +6,12 @@
     <jsp:setProperty name="feedback" property="*"/>
 </jsp:useBean>
 
-<jsp:useBean id="loggedUser" class="bean.UserBean" scope="session"/>
+<jsp:useBean id="logged_user" class="model.User" scope="session"/>
 
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
 
 <%
-    String username = "andrea.cifola"; //loggedUser.getUsername();
+    String username = logged_user.getUsername();
     String description = feedback.getDescription();
     Integer rating = feedback.getRating();
 

@@ -107,13 +107,13 @@ public class FilteredSearchResultLocation {
             }
         });
 
-        jButton_Reserve.addActionListener(new ActionListener() {
+        /*jButton_Reserve.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ReservationController(location, mainView.getTorVergataRentController().getLoggedUser(), owner, fromDate, toDate);
 
             }
-        });
+        });*/
     }
 
     public JPanel getjPanelMain() {

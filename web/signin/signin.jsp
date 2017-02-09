@@ -66,6 +66,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-10" align="right">
             <h5>Non sei ancora registrato? <a href="../registration/registration.jsp"> Registrati ora!</a></h5>
+            <h5>Oppure <a href="/search/search.jsp"> esplora </a>il nostro sito!</h5>
         </div>
     </div>
 

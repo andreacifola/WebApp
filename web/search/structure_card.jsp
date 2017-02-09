@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
+<jsp:useBean id="logged_user" scope="session" class="model.User"/>
+
 <%Integer index = Integer.valueOf(request.getParameter("structure_index"));%>
 <div class="thumbnail">
     <div class="caption" style="margin-right: -2%">

@@ -16,7 +16,6 @@
     try {
         startDate = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY).parse(filters.getStart_date());
     } catch (ParseException e) {
-        e.printStackTrace();
         if (filters.getStart_date().equals(""))
             startDate = null;
         else {
@@ -27,7 +26,6 @@
     try {
         endDate = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY).parse(filters.getEnd_date());
     } catch (ParseException e) {
-        e.printStackTrace();
         if (filters.getEnd_date().equals(""))
             endDate = null;
         else {

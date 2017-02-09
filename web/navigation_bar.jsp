@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="logged_user" scope="session" class="model.User"/>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -15,15 +16,13 @@
                         class="sr-only">(current)</span></a></li>
                 <li id="profile-navbar-link" ${param.current_tab.equalsIgnoreCase("5") ? "class=\"active\"" : null}><a href="#">Profilo<span class="sr-only">(current)</span></a></li>
             </ul>
-            <% if((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) { %>
             <ul class="nav navbar-nav navbar-right">
-                <li><button id="logout-button-navbar-link" type="button" class="btn btn-danger navbar-btn">Logout</button><span class="sr-only">(current)</span></li>
+                <li>
+                    <form action="/logout.jsp" method="post" style="margin-bottom: -2%; margin-top: -2%">
+                        <input id="logout-button-navbar-link" type="submit"  role="button" class="btn navbar-btn <%=(logged_user == null || logged_user.getUsername() == null)? "btn-primary" : "btn-danger"%> " value="<%=(logged_user == null || logged_user.getUsername() == null)? "Accedi" : "Esci"%>"/><span class="sr-only">(current)</span>
+                    </form>
+                </li>
             </ul>
-            <%}else{ %>
-            <ul class="nav navbar-nav navbar-right">
-                <li><button id="login-button-navbar-link" type="button" class="btn btn-default navbar-btn">Login</button><span class="sr-only">(current)</span></li>
-            </ul>
-            <%}%>
         </div>
     </div>
 </nav>

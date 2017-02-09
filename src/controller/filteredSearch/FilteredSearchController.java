@@ -133,7 +133,7 @@ public class FilteredSearchController {
                                               Integer maxPrice, Boolean wifi, Boolean smoking, Boolean petsAllowed, Boolean parking, Boolean roomService,
                                               Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws SQLException {
 
-        FilteredSearchController fsc = new FilteredSearchController();
+        FilteredSearchController fsc = this;
         fsc = new PriceResearch(maxPrice, fsc);
 
         if (from != null && to != null) {

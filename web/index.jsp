@@ -3,14 +3,12 @@
 <head>
     <title>Welcome</title>
 </head>
-<body background="resources/background.jpg">
+<body background="/background.jpg">
 
 <div class="container-fluid" align="left" style="margin-top: 10%; margin-left: 5%">
-    <nav class="col-sm-6">
+    <div class="col-sm-5">
         <jsp:include page="signin/signin.jsp"/>
-    </nav>
-
+    </div>
 </div>
-
 </body>
 </html>

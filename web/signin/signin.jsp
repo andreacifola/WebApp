@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign-in</title>
+    <title>Accesso</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,47 +11,65 @@
 </head>
 <body>
 
-<div class="container row col-sm-10" style="background-color: white">
-
-    <div class="col-sm-12">
-
-
-        <h1 align="center">Sign in</h1>
+<div class="well" style="background-color: white;">
+    <div style="margin-left: 10%; margin-right: 10%">
+        <div class="row">
+        <h1 align="center">Accedi</h1>
+        <br>
+    </div>
+        <div class="row">
         <form class="form-horizontal" action="/signin/signinControl.jsp" method="get">
-            <div class="form-group">
-                <% if (request.getAttribute("username_not_valid") != null) {%>
-                <div class="alert alert-danger" role="alert">
-                    <strong>Error!</strong> Wrong username and/or password.
-                </div>
-                <%} %>
-                <label class="control-label col-sm-2">Username:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="username" placeholder="Enter username">
+            <div class="row">
+                <div class="form-group">
+                    <% if (request.getAttribute("username_not_valid") != null) {%>
+                    <div class="row">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Errore!</strong> Nome utente e/o password sbagliate.
+                        </div>
+                    </div>
+                    <%} %>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="control-label">Nome utente:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="username" placeholder="Inserisci il nome utente">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" >Password:</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" name="password" placeholder="Enter password">
+            <div class="row">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="control-label">Password:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" name="password" placeholder="Inserisci la password">
+                        </div>
+                    </div>
                 </div>
             </div>
             <br>
-            <div class="col-sm-7"></div>
-            <div class="form-group col-sm-5">
-                <div>
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-default">Sign in</button>
+            <div class="row">
+                <div class="col-sm-7"></div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <button type="reset" class="btn btn-default">Reset</button>
+                        <button type="submit" class="btn btn-primary">Accedi</button>
+                    </div>
                 </div>
-
             </div>
         </form>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-9" align="right">
+    </div>
+        <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10" align="right">
             <h5>Non sei ancora registrato? <a href="../registration/registration.jsp"> Registrati ora!</a></h5>
         </div>
-
     </div>
 
+    </div>
 </div>
 
 </body>

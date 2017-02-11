@@ -162,35 +162,42 @@
                             </div>
                             <div class="checkbox">
                                 <label><input name="animals"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isPetsAllowed() ? "checked=\"checked\"" : null%>>Animaliammessi</label>
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isPetsAllowed() ? "checked=\"checked\"" : null%>>Animali
+                                    ammessi</label>
                             </div>
                             <div class="checkbox">
                                 <label><input name="room-service"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isRoomService() ? "checked=\"checked\"" : null%>>Servizioin
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isRoomService() ? "checked=\"checked\"" : null%>>Servizio
+                                    in
                                     camera</label>
                             </div>
                             <div class="checkbox">
                                 <label><input name="view"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isViews() ? "checked=\"checked\"" : null%>>Vistapanoramica</label>
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isViews() ? "checked=\"checked\"" : null%>>Vista
+                                    panoramica</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="checkbox">
                                 <label><input name="smoking"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isSmokingRoom() ? "checked=\"checked\"" : null%>>Stanzaper
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isSmokingRoom() ? "checked=\"checked\"" : null%>>Stanza
+                                    per
                                     fumatori</label>
                             </div>
                             <div class="checkbox">
                                 <label><input name="parking"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isParking() ? "checked=\"checked\"" : null%>>Areaparcheggio</label>
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isParking() ? "checked=\"checked\"" : null%>>Area
+                                    parcheggio</label>
                             </div>
                             <div class="checkbox">
                                 <label><input name="conditioned-air"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isConditionedAir() ? "checked=\"checked\"" : null%>>Areacondizionata</label>
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isConditionedAir() ? "checked=\"checked\"" : null%>>Area
+                                    condizionata</label>
                             </div>
                             <div class="checkbox">
                                 <label><input name="plasma-tv"
-                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isPlasmaTv() ? "checked=\"checked\"" : null%>>TVal
+                                              type="checkbox" <%=structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getService().isPlasmaTv() ? "checked=\"checked\"" : null%>>TV
+                                    al
                                     plasma</label>
                             </div>
                         </div>

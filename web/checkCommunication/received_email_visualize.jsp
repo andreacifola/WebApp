@@ -6,20 +6,17 @@
 <jsp:useBean id="logged_user" scope="session" class="model.User"/>
 <%
     try {
-        String logged_username = logged_user.getUsername();
+        String logged_email = logged_user.getEmail();
 
         CommunicationController cc = new CommunicationController();
-        ListLetterBean sendedLetters = new ListLetterBean();
-        sendedLetters.setLetters(cc.getEmailInfo(logged_username, Query.findSenderNameAndSurname));
-        session.setAttribute("sendedLettersBean", sendedLetters);
 
         ListLetterBean receivedLetters = new ListLetterBean();
-        receivedLetters.setLetters(cc.getEmailInfo(logged_username, Query.findReceiverNameAndSurname));
+        receivedLetters.setLetters(cc.getEmailInfo(logged_email, Query.findReceiverNameAndSurname));
         session.setAttribute("receivedLettersBean", receivedLetters);
 
     } catch (Exception e) {
         e.printStackTrace();
     }
 
-    request.getRequestDispatcher("checkCommunication.jsp").forward(request, response);
+    request.getRequestDispatcher("/checkCommunication/checkCommunication.jsp").forward(request, response);
 %>

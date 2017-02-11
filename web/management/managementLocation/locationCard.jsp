@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
-<%Integer structureIndex = Integer.valueOf(request.getParameter("structure_index"));%>
 <%Integer locationIndex = Integer.valueOf(request.getParameter("location_index"));%>
 
 <div style="margin: 1%">
@@ -17,16 +16,17 @@
                     <div class="col-sm-4">
                         <label>Caratteristiche:</label>
                         <ul type="disc">
-                            <li>Stanze: <%=structuresBean.getStructures().get(structureIndex)
+                            <li>Stanze: <%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                     .getLocations().get(locationIndex).getNumOfRooms()%>
                             </li>
-                            <li>Bagni: <%=structuresBean.getStructures().get(structureIndex)
+                            <li>Bagni: <%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                     .getLocations().get(locationIndex).getNumOfBath()%>
                             </li>
-                            <li>Persone max.: <%=structuresBean.getStructures().get(structureIndex)
+                            <li>Persone
+                                max.: <%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                     .getLocations().get(locationIndex).getNumMaxGuests()%>
                             </li>
-                            <li>Letti: <%=structuresBean.getStructures().get(structureIndex)
+                            <li>Letti: <%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                     .getLocations().get(locationIndex).getNumBeds()%>
                             </li>
                         </ul>
@@ -36,32 +36,32 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <ul type="circle">
-                                    <li>WiFi: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>WiFi: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isWifi() ? "ok":"remove"%>"
                                                     aria-hidden="true"></span></li>
-                                    <li>Animali ammessi: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Animali ammessi: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isPetsAllowed() ? "ok":"remove"%>"
                                                                aria-hidden="true"></span></li>
-                                    <li>Servizio in camera: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Servizio in camera: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isRoomService() ? "ok":"remove"%>"
                                                                   aria-hidden="true"></span></li>
-                                    <li>Vista: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Vista: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isViews() ? "ok":"remove"%>"
                                                      aria-hidden="true"></span></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6">
                                 <ul type="circle">
-                                    <li>Fumatori: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Fumatori: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isSmokingRoom() ? "ok":"remove"%>"
                                                         aria-hidden="true"></span></li>
-                                    <li>Parcheggio: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Parcheggio: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isParking() ? "ok":"remove"%>"
                                                           aria-hidden="true"></span></li>
-                                    <li>Aria condizionata: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Aria condizionata: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isConditionedAir() ? "ok":"remove"%>"
                                                                  aria-hidden="true"></span></li>
-                                    <li>Tv al plasma: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structureIndex)
+                                    <li>Tv al plasma: <span class="glyphicon glyphicon-<%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                                         .getLocations().get(locationIndex).getService().isPlasmaTv() ? "ok":"remove"%>"
                                                             aria-hidden="true"></span></li>
                                 </ul>
@@ -71,7 +71,7 @@
                 </div>
                 <label>Descrizione:</label>
                 <p class="list-group-item-text" align="justify">
-                    <%=structuresBean.getStructures().get(structureIndex)
+                    <%=structuresBean.getStructures().get(structuresBean.getStructureSelected())
                             .getLocations().get(locationIndex).getDescription()%>
                 </p>
             </div>
@@ -85,12 +85,13 @@
                 </form>
                 --%>
                 <form method="get" action="/modifyLocation/modifyLocation.jsp">
-                    <button type="submit" name="structureindex" value="<%=locationIndex%>" class="btn btn-primary">
+                    <button type="submit" name="locationIndex" value="<%=locationIndex%>" class="btn btn-primary">
                         Modifica
                     </button>
                 </form>
                 <form method="get" action="">
-                    <button type="submit" name="structureindex" value="<%=structureIndex%>" class="btn btn-primary">
+                    <button type="submit" name="structureindex" value="<%=structuresBean.getStructureSelected()%>"
+                            class="btn btn-primary">
                         Cancella
                     </button>
                 </form>

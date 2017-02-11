@@ -27,7 +27,14 @@ Created by IntelliJ IDEA.
 
 <jsp:include page="../../navigation_bar.jsp"/>
 
+<%if (request.getAttribute("true_modify_location") != null) {%>
+
 <div class="container-fluid " style="margin-top: 5%">
+    <div class="alert alert-success" role="success">
+        La locazione <label style="font-style: italic"><%=request.getAttribute("true_modify_location")%>
+    </label>
+    </div>
+    <%}%>
     <div class="col-sm-8 ">
         <div class="panel panel-default">
             <div class="panel-heading">

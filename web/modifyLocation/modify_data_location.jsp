@@ -1,5 +1,7 @@
 <%@ page import="controller.managementLocationController.ManagementLocationController" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
+
 <%
     String description = request.getParameter("description");
 
@@ -18,16 +20,18 @@
     Boolean conditionedAir = (request.getParameter("conditioned-air") != null) ? Boolean.TRUE : Boolean.FALSE;
     Boolean plasmaTv = (request.getParameter("plasma-tv") != null) ? Boolean.TRUE : Boolean.FALSE;
 
+    Integer ID = structuresBean.getStructures().get(structuresBean.getStructureSelected()).getLocations().get(structuresBean.getLocationSelected()).getId();
+
     //TODO prendere tutti i dati dal caso d'uso di Tiziano
 
     try {
         ManagementLocationController mlc = new ManagementLocationController();
-        //TODO sostituire 1 con id (che cosa è che non mi ricordo???)
-        mlc.modifyLocation(Integer.valueOf(request.getParameter("structure_index")), description, rooms, toilets, people, beds, price, wifi, animals,
+        mlc.modifyLocation(ID, description, rooms, toilets, people, beds, price, wifi, animals,
                 roomService, view, smoking, parking, conditionedAir, plasmaTv);
 
-        //TODO rimandare alla pagina precedente
-        request.getRequestDispatcher("/managementStructure/structure.jsp").forward(request, response);
+        String modified = " è stata modificata con successo!";
+        request.setAttribute("true_modify_location", modified);
+        request.getRequestDispatcher("/management/managementStructure/structureJavaFind.jsp").forward(request, response);
     } catch (Exception e) {
         e.printStackTrace();
     }

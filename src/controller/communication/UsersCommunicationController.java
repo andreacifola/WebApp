@@ -18,7 +18,7 @@ public class UsersCommunicationController {
         return Pattern.compile(EMAIL_PATTERN).matcher(email).matches();
     }
 
-    private String searchEmailFromUsername(String username) {
+    public String searchEmailFromUsername(String username) {
         try {
             PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.searchEmailFromUsername);
             statement.setString(1, username);
@@ -37,8 +37,8 @@ public class UsersCommunicationController {
                 && checkEmail(emailReceiver) && !object.isEmpty() && !body.isEmpty()) {
             try {
                 PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.enterNewEmail);
-                statement.setString(1, sender);
-                statement.setString(2, receiver);
+                statement.setString(1, emailSender);
+                statement.setString(2, emailReceiver);
                 statement.setString(3, object);
                 statement.setString(4, body);
                 statement.execute();

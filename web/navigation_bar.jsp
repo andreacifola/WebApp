@@ -11,9 +11,11 @@
                 <li id="reservations-navbar-link" ${param.current_tab.equalsIgnoreCase("2") ? "class=\"active\"" : null}><a href="/reservation/reservationJavaFind.jsp">Prenotazioni<span class="sr-only">(current)</span></a></li>
                 <li id="locations-navbar-link" ${param.current_tab.equalsIgnoreCase("3") ? "class=\"active\"" : null}><a href="/management/managementStructure/structureJavaFind.jsp">Strutture<span class="sr-only">(current)</span></a></li>
                 <li id="messages-navbar-link" ${param.current_tab.equalsIgnoreCase("4") ? "class=\"active\"" : null}><a
-                        href="/checkCommunication/checkCommunication_box.jsp">Messaggi<span
+                        href="/checkCommunication/checkCommunication.jsp">Messaggi<span
                         class="sr-only">(current)</span></a></li>
-                <li id="profile-navbar-link" ${param.current_tab.equalsIgnoreCase("5") ? "class=\"active\"" : null}><a href="#">Profilo<span class="sr-only">(current)</span></a></li>
+                <li id="profile-navbar-link" ${param.current_tab.equalsIgnoreCase("5") ? "class=\"active\"" : null}><a
+                        href="/managementeProfile/managementProfile.jsp">Profilo<span
+                        class="sr-only">(current)</span></a></li>
             </ul>
             <% if((session.getAttribute("userid") == null) || (session.getAttribute("userid") == "")) { %>
             <ul class="nav navbar-nav navbar-right">

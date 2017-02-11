@@ -19,6 +19,14 @@ public class PaymentController {
         this.transaction = new Transaction(amount, null, recipient.getIban());
     }
 
+    /**
+     * Trying to complete the payment contacting the bank
+     * @param cardNumber of the user's card
+     * @param firstName of the user
+     * @param lastName of the user
+     * @param expirationDate of the user's card
+     * @return true on success
+     */
     public boolean confirmForm(String cardNumber, String firstName, String lastName, String expirationDate) {
         try {
             CreditCard creditCard = new CreditCard(cardNumber, firstName, lastName, expirationDate);

@@ -20,6 +20,12 @@ import java.util.Date;
 
 public class FilteredSearchController extends Component{
 
+    /**
+     * Looking in DB for feedbacks related to a certain location
+     * @param idLocation the location ID
+     * @return ArrayList of Feedback
+     * @throws SQLException
+     */
     public static ArrayList<Feedback> retrieveFeedbackByLocation(Integer idLocation) throws SQLException {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findFeedbackByLocation);
         preparedStatement.setInt(1, idLocation);
@@ -34,6 +40,12 @@ public class FilteredSearchController extends Component{
         return feedbacks;
     }
 
+    /**
+     * Looking in DB for User given its username
+     * @param u_username of the user we want find
+     * @return the User
+     * @throws SQLException
+     */
     public static User retrieveOwnerInfoByUsername(String u_username) throws SQLException{
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findUserByUsername);
         preparedStatement.setString(1, u_username);
@@ -56,6 +68,12 @@ public class FilteredSearchController extends Component{
         throw new SQLException();
     }
 
+    /**
+     * Looking in DB for locations related to a certain structure
+     * @param id Structure ID
+     * @return ArrayList of Location
+     * @throws SQLException
+     */
     public static ArrayList<Location> retrieveLocationsInfoByStructureID(Integer id) throws SQLException {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findLocationByStructure);
         preparedStatement.setInt(1, id);
@@ -88,6 +106,12 @@ public class FilteredSearchController extends Component{
         return locations;
     }
 
+    /**
+     * Looking in DB for Availability couple related to a certain location
+     * @param idLocation of the location
+     * @return ArrayList of Date[]
+     * @throws SQLException
+     */
     public static ArrayList<Date[]> retrieveAvailabilityByLocation(Integer idLocation) throws SQLException {
         PreparedStatement preparedStatementAvailability = DataSource.getConnection().prepareStatement(Query.findAvailability);
         preparedStatementAvailability.setInt(1, idLocation);
@@ -101,6 +125,12 @@ public class FilteredSearchController extends Component{
         return availability;
     }
 
+    /**
+     * Looking in DB for Structure given a ResultSet
+     * @param resultSet returned by a query
+     * @return a Structure
+     * @throws SQLException
+     */
     public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException {
         Integer s_id = resultSet.getInt("id");
         String s_name = resultSet.getString("name"),
@@ -118,6 +148,11 @@ public class FilteredSearchController extends Component{
         return new Structure(s_id, s_name, s_region, s_city, s_address, s_housenumber, s_cap, owner, s_description, locations);
     }
 
+    /**
+     * Looking in DB for structures
+     * @return ArrayList of Structure
+     * @throws SQLException
+     */
     protected ArrayList<Structure> search() throws SQLException {
         PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.findStructures);
         ResultSet resultSet = statement.executeQuery();
@@ -128,6 +163,29 @@ public class FilteredSearchController extends Component{
         return structures;
     }
 
+    /**
+     * Start search applying filters
+     * @param from start Date
+     * @param to end Date
+     * @param region of Structure
+     * @param city of Structure
+     * @param name of Structure
+     * @param rooms in Location
+     * @param baths in Location
+     * @param maxGuests in Location
+     * @param beds in Location
+     * @param maxPrice of Location
+     * @param wifi service in Location
+     * @param smoking service in Location
+     * @param petsAllowed service in Location
+     * @param parking service in Location
+     * @param roomService service in Location
+     * @param conditionedAir service in Location
+     * @param views service in Location
+     * @param plasmaTV service in Location
+     * @return ArrayList of Structure
+     * @throws SQLException
+     */
     public ArrayList<Structure> startResearch(Date from, Date to, String region, String city, String name, Integer rooms, Integer baths, Integer maxGuests, Integer beds,
                                               Integer maxPrice, Boolean wifi, Boolean smoking, Boolean petsAllowed, Boolean parking, Boolean roomService,
                                               Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws SQLException {

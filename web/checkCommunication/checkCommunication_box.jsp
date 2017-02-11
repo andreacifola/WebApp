@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<jsp:useBean id="sendedLettersBean" scope="session" class="bean.ListLetterBean"/>
+<jsp:useBean id="receivedLettersBean" scope="session" class="bean.ListLetterBean"/>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -11,10 +15,8 @@
     <script src="UserCommunicationControl.js"></script>
 </head>
 <body>
-<jsp:include page="../navigation_bar.jsp">
-    <jsp:param name="current_tab" value="4"/>
-</jsp:include>
-<div class="container-fluid" style="margin-top: 5%">
+
+<div class="container-fluid">
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -29,7 +31,7 @@
                                 <label class="control-label col-sm-2" for="receiver">A:</label>
                                 <div class="col-sm-10">
                                     <input name="receiver" type="text" class="form-control input-sm" id="receiver"
-                                           value="${param.newReceiver}"
+                                           value="<%=request.getParameter("newReceiver") == null ? sendedLettersBean.getLetters().get(0).getUsername() : request.getParameter("newReceiver")%>"
                                            style="background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>
@@ -42,7 +44,7 @@
                                 <label class="control-label col-sm-2" for="object1">Oggetto:</label>
                                 <div class="col-sm-10">
                                     <input name="object1" type="text" class="form-control" id="object1"
-                                           value="${param.newObject1}"
+                                           value="<%=request.getParameter("newObject1") == null ? sendedLettersBean.getLetters().get(0).getObject() : request.getParameter("newObject1")%>"
                                            style="background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>
@@ -56,20 +58,18 @@
                                 <div class="col-sm-10">
                                     <!-- Lasciare così la textarea altrimenti introduce spazi bianchi misteriosi-->
                                     <textarea name="texts" class="form-control" rows="9" id="message1"
-                                              placeholder="${param.newBody1}"
                                               style="resize:none; background:linear-gradient(whitesmoke,white);"
-                                              readonly></textarea>
+                                              readonly><%=request.getParameter("newBody1") == null ? sendedLettersBean.getLetters().get(0).getBody() : request.getParameter("newBody1")%></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-0.5"></div>
                         </div>
                         <div style="text-align: center">
-                            <button type="submit" class="btn btn-default" onclick="goBackSended()"
+                            <button type="submit" name="submit_btn" value="<%="1"%>" class="btn btn-default"
                                     style="margin-top:3%; margin-bottom:2%">Precedente
                             </button>
-                            <button type="submit" class="btn btn-default" onclick="goForwardSended()"
-                                    style="margin-top:3%; margin-bottom:2%">
-                                Successivo
+                            <button type="submit" name="submit_btn" value="<%="2"%>" class="btn btn-default"
+                                    style="margin-top:3%; margin-bottom:2%">Successivo
                             </button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                                 <label class="control-label col-sm-2" for="receiver">Da:</label>
                                 <div class="col-sm-10">
                                     <input name="sender" type="text" class="form-control input-sm" id="sender"
-                                           value="${param.newSender}"
+                                           value="<%=request.getParameter("newSender") == null ? receivedLettersBean.getLetters().get(0).getUsername() : request.getParameter("newSender")%>"
                                            style="background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                 <label class="control-label col-sm-2" for="object1">Oggetto:</label>
                                 <div class="col-sm-10">
                                     <input name="object2" type="text" class="form-control" id="object2"
-                                           value="${param.newObject2}"
+                                           value="<%=request.getParameter("newObject2") == null ? receivedLettersBean.getLetters().get(0).getObject() : request.getParameter("newObject2")%>"
                                            style=" background:linear-gradient(whitesmoke,white);" readonly>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 <div class="col-sm-10">
                                     <!-- Lasciare così la textarea altrimenti introduce spazi bianchi misteriosi-->
                                     <textarea name="texts2" class="form-control" rows="9" id="message2"
-                                              placeholder="${param.newBody2}"
+                                              placeholder="<%=request.getParameter("newBody2") == null ? receivedLettersBean.getLetters().get(0).getBody() : request.getParameter("newBody2")%>"
                                               style="resize:none; background:linear-gradient(whitesmoke,white);"
                                               readonly></textarea>
                                 </div>
@@ -127,10 +127,10 @@
                             <div class="col-sm-0.5"></div>
                         </div>
                         <div style="text-align: center">
-                            <button type="submit" class="btn btn-default" onclick="goBackReceived()"
+                            <button type="submit" name="submit_btn" value="<%="3"%>" class="btn btn-default"
                                     style="margin-top:3%; margin-bottom:2%">Precedente
                             </button>
-                            <button type="submit" class="btn btn-default" onclick="goForwardReceived()"
+                            <button type="submit" name="submit_btn" value="<%="4"%>" class="btn btn-default"
                                     style="margin-top:3%; margin-bottom:2%">Successivo
                             </button>
                         </div>

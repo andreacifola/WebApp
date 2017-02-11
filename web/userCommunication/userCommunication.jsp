@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="logged_user" scope="session" class="model.User"/>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,6 +17,7 @@
 
     <jsp:include page="userCommunication_box.jsp">
         <jsp:param name="username_receiver" value="<%=request.getParameter(\"username_owner\")%>"/>
+        <jsp:param name="username_sender" value="<%=logged_user.getUsername()%>"/>
     </jsp:include>
 
 </div>

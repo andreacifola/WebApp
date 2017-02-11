@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="structuresBean" scope="session" class="bean.StructureListBean"/>
+<%structuresBean.setLocationSelected(Integer.valueOf(request.getParameter("locationIndex")));%>
+
 <html>
 <head>
     <title>Gestisci locazione</title>
@@ -19,6 +22,7 @@
 
 <jsp:include page="../navigation_bar.jsp"/>
 <div class="container-fluid">
+
     <jsp:include page="modifyLocation_box.jsp"/>
 </div>
 

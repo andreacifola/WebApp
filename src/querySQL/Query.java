@@ -17,18 +17,15 @@ public class Query {
             "wifi,smokingRoom,petsallowed,parking,roomservice,conditionedair,views,plasmaTv,structure) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     public static final String addNewStrutture = "INSERT INTO structure(name,owner,description,region,city,address,housenumber,cap) VALUES (?,?,?,?,?,?,?,?)";
     public static final String findStructuresByUsername = "SELECT * FROM public.structure WHERE owner = ?";
-    //TODO
-    public static final String findSendedLetters = "SELECT * FROM public.letter WHERE sender = ?";
-    public static final String findReceivedLetters = "SELECT * FROM public.letter WHERE receiver = ?";
     public static final String updateUser = "UPDATE public.user SET name = ?, surname = ?, city = ?, address = ?, birthdate = ?, email = ?, " +
             "password = ? , iban = ? WHERE username = ? ";
     public static final String enterNewEmail = "INSERT INTO public.letter(sender, receiver, object, body) VALUES (?,?,?,?)";
     public static final String searchEmailFromUsername = "SELECT email FROM public.user WHERE username =  ?";
 
     public static final String findSenderNameAndSurname = "SELECT U1.username username1, U2.username username2, object, body FROM public.user U1 JOIN " +
-            "public.letter ON U1.email = public.letter.sender JOIN public.user U2 ON U2.email = public.letter.receiver WHERE U1.email = ?";
+            "public.letter ON U1.email = public.letter.sender JOIN public.user U2 ON U2.email = public.letter.receiver WHERE U1.email = ? ORDER BY id";
     public static final String findReceiverNameAndSurname = "SELECT U1.username username1, U2.username username2, object, body FROM public.user U1 JOIN " +
-            "public.letter ON U1.email = public.letter.receiver JOIN public.user U2 ON U2.email = public.letter.sender WHERE U1.email = ?";
+            "public.letter ON U1.email = public.letter.receiver JOIN public.user U2 ON U2.email = public.letter.sender WHERE U1.email = ? ORDER BY id";
     public static final String findFeedbackByLocation = "SELECT * FROM public.feedback WHERE location = ?";
     public static final String addFeedback = "INSERT INTO feedback(rating,description,username,location) VALUES (?,?,?,?) ON CONFLICT (username,location) DO UPDATE SET rating=EXCLUDED.rating, description=EXCLUDED.description";
     public static final String enterLocationChanges = "INSERT INTO public.location(id,description,numberofrooms,numberofbathrooms,maxguestsnumber,numberofbeds," +
@@ -41,5 +38,4 @@ public class Query {
     public static final String deleteLocation = "DELETE FROM public.reservation WHERE id=?";
     public static final String selectReservation = "SELECT * FROM public.reservation WHERE username=?";
     public static final String checkReservation = "SELECT * FROM public.reservation WHERE username = ? AND location = ?";
-    public static final String deleteRowsUnderTest = "DELETE FROM letter WHERE object = 'oggetto' AND body = 'corpo123./'";
 }

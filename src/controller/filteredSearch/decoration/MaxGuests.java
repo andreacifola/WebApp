@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -13,8 +14,8 @@ public class MaxGuests extends Decorator {
 
     private Integer maxGuests;
 
-    public MaxGuests(Integer maxGuests, FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public MaxGuests(Integer maxGuests, Component filteredSearchComponent) {
+        super(filteredSearchComponent);
         this.maxGuests = maxGuests;
     }
 

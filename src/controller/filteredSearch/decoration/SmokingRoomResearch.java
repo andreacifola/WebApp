@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 
 public class SmokingRoomResearch extends Decorator {
 
-    public SmokingRoomResearch(FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public SmokingRoomResearch(Component filteredSearchComponent) {
+        super(filteredSearchComponent);
     }
 
     public ArrayList<Structure> filterResearchSmokingRoom(ArrayList<Structure> structures) {

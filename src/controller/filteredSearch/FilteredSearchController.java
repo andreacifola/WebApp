@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FilteredSearchController {
+public class FilteredSearchController extends Component{
 
     public static ArrayList<Feedback> retrieveFeedbackByLocation(Integer idLocation) throws SQLException {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findFeedbackByLocation);
@@ -46,14 +46,13 @@ public class FilteredSearchController {
                     u_email = resultSet.getString("email"),
                     u_password = resultSet.getString("password"),
                     u_iban = resultSet.getString("iban");
-            Boolean u_scout = resultSet.getBoolean("scout");
             Date u_date = resultSet.getDate("birthdate");
+            Boolean u_scout = resultSet.getBoolean("scout");
             try {
                 return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban, u_scout);
             } catch (IBANCredentialNotValid ibanCredentialNotValid) {
                 ibanCredentialNotValid.printStackTrace();
-            }
-        }
+            }        }
         throw new SQLException();
     }
 
@@ -102,7 +101,7 @@ public class FilteredSearchController {
         return availability;
     }
 
-    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException{
+    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException {
         Integer s_id = resultSet.getInt("id");
         String s_name = resultSet.getString("name"),
                 s_owner = resultSet.getString("owner"),
@@ -119,7 +118,7 @@ public class FilteredSearchController {
         return new Structure(s_id, s_name, s_region, s_city, s_address, s_housenumber, s_cap, owner, s_description, locations);
     }
 
-    protected ArrayList<Structure> search() throws SQLException{
+    protected ArrayList<Structure> search() throws SQLException {
         PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.findStructures);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Structure> structures = new ArrayList<>();
@@ -133,7 +132,7 @@ public class FilteredSearchController {
                                               Integer maxPrice, Boolean wifi, Boolean smoking, Boolean petsAllowed, Boolean parking, Boolean roomService,
                                               Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws SQLException {
 
-        FilteredSearchController fsc = this;
+        Component fsc = this;
         fsc = new PriceResearch(maxPrice, fsc);
 
         if (from != null && to != null) {

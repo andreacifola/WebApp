@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -14,8 +15,8 @@ public class AvailabilityResearch extends Decorator {
 
     private Date from, to;
 
-    public AvailabilityResearch(Date from, Date to, FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public AvailabilityResearch(Date from, Date to, Component filteredSearchComponent) {
+        super(filteredSearchComponent);
         this.from = from;
         this.to = to;
     }

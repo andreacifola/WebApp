@@ -22,7 +22,7 @@
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Posta <b> INVIATA</b></h3>
+                <h3 class="panel-title" style="text-align:center">Posta <b> INVIATA</b></h3>
             </div>
 
             <form name="search-form" class="form-horizontal col-sm-12" method="post"
@@ -30,10 +30,11 @@
                 <div class="form-group">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <button type="submit" name="submit_btn" class="btn btn-primary" value="<%="1"%>"
-                                style="margin-top:3%; margin-bottom:2%">Cerca Posta <label style="font-weight:bold">
-                            INVIATA</label>
-                        </button>
+                        <div style="text-align: center">
+                            <button type="submit" name="submit_btn" class="btn btn-primary" value="<%="1"%>"
+                                    style="margin-top:7%">Cerca Posta <b>INVIATA</b>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
@@ -46,7 +47,7 @@
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Posta <label style="font-weight:bold"> RICEVUTA</label></h3>
+                <h3 class="panel-title" style="text-align:center">Posta <b> RICEVUTA</b></h3>
             </div>
 
             <form name="search-form" class="form-horizontal col-sm-12" method="post"
@@ -54,10 +55,11 @@
                 <div class="form-group">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <button type="submit" name="submit_btn" class="btn btn-primary" value="<%="1"%>"
-                                style="margin-top:3%; margin-bottom:2%">Cerca Posta <label style="font-weight:bold">
-                            RICEVUTA</label>
-                        </button>
+                        <div style="text-align: center">
+                            <button type="submit" name="submit_btn" class="btn btn-primary" value="<%="1"%>"
+                                    style="margin-top:7%;">Cerca Posta <b>RICEVUTA</b>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-sm-3"></div>
                 </div>

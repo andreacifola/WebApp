@@ -15,7 +15,14 @@ import java.util.ArrayList;
  */
 public class CommunicationController {
 
-
+    /**
+     * This method takes all the letters (received both sended) in the DB with the specific logged user email
+     *
+     * @param userEmail the email of the logged user
+     * @param query     query that search both received email and sended email
+     * @return the array of the letters. Each letter has username of the sender (or receiver),
+     * object and body of the letter
+     */
     public ArrayList<Letter> getEmailInfo(String userEmail, String query) {
         try {
             PreparedStatement statement = DataSource.getConnection().prepareStatement(query);
@@ -38,6 +45,15 @@ public class CommunicationController {
         return null;
     }
 
+    /**
+     * This method disables some text fields, filled with the results of the query in getEmailInfo() function.
+     * @param textField1
+     * @param stringField1
+     * @param textField2
+     * @param stringField2
+     * @param textPane
+     * @param stringPane
+     */
     public void disableTextField(JTextField textField1, String stringField1, JTextField textField2,
                                  String stringField2, JTextPane textPane, String stringPane) {
         textField1.setEnabled(false);
@@ -51,6 +67,15 @@ public class CommunicationController {
         textPane.setDisabledTextColor(Color.BLACK);
     }
 
+    /**
+     * This method fills the elements of the check communication panel with the first letter information
+     * (both sended and received)
+     * @param arrayList
+     * @param senderOrReceiver
+     * @param object
+     * @param body
+     * @param i
+     */
     public void setCommunicationTabParameters(ArrayList<Letter> arrayList, String[] senderOrReceiver, String[] object, String[] body, int[] i) {
         if (arrayList != null) {
             senderOrReceiver[0] = arrayList.get(i[0]).getUsername().trim();

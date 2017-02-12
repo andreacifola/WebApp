@@ -16,13 +16,13 @@
 
     <%if (receivedLettersBean.getLetters() == null) {%>
 
-    <div style="margin-top: 5%">
-        <h4>Premi il bottone per cercare le lettere inviate!</h4>
+    <div style="margin-top: 2%">
+        <h4 style="text-align: center">Premi il bottone per cercare le lettere inviate!</h4>
     </div>
 
     <%} else if (receivedLettersBean.getLetters().size() == 0) {%>
 
-    <div style="margin-top: 5%">
+    <div style="margin-top: 2%">
         <h4>Non ci sono email inviate da mostrare!</h4>
     </div>
 

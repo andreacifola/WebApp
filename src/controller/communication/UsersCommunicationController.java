@@ -18,6 +18,12 @@ public class UsersCommunicationController {
         return Pattern.compile(EMAIL_PATTERN).matcher(email).matches();
     }
 
+    /**
+     * This method, with a query, searches email of the logged user starting from the username of the logged user
+     *
+     * @param username of the logged user
+     * @return the email
+     */
     public String searchEmailFromUsername(String username) {
         try {
             PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.searchEmailFromUsername);
@@ -30,6 +36,14 @@ public class UsersCommunicationController {
         }
     }
 
+    /**
+     * This method sends email with the help of a query
+     * @param sender of the email
+     * @param receiver of the email
+     * @param object of the email
+     * @param body of the email
+     * @return true in case of success (query sended), false otherwise
+     */
     public boolean sendEmail(String sender, String receiver, String object, String body) {
         String emailSender = searchEmailFromUsername(sender);
         String emailReceiver = searchEmailFromUsername(receiver);
@@ -51,6 +65,13 @@ public class UsersCommunicationController {
         return false;
     }
 
+    /**
+     * This method disables text fields which contains sender, receiver, object and body of the query
+     * @param textField1
+     * @param stringField1
+     * @param textField2
+     * @param stringField2
+     */
     public void disableTextFieldForCommunication(JTextField textField1, String stringField1,
                                                  JTextField textField2, String stringField2) {
         textField1.setEnabled(false);

@@ -13,10 +13,15 @@ public class DataSource {
             "jdbc:postgresql://localhost:5432/postgres"; //jdbc:postgresql://localhost:5432/ispw
 
     private static String user = "postgres",
-            password = "postgres";
+            password = "r.f.arredamenti";
 
     private static Connection connection = null;
 
+    /**
+     * This method return a connection to a local DB
+     *
+     * @return the desired connection (instantiated if it was null, otherwise returned immediately)
+     */
     public static Connection getConnection() {
         if (connection != null)
             return connection;

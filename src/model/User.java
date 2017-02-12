@@ -55,42 +55,72 @@ public class User {
         this.scout = resultSet.getBoolean("scout");
     }
 
+    /**
+     * @return the name of the logged user
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return the surname of the logged user
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * @return the city of the logged user
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     * @return the address of the logged user
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * @return the birthdate of the logged user
+     */
     public Date getBirthDate() {
         return birthDate;
     }
 
+    /**
+     * @return the email of the logged user
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * @return the username of the logged user
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * @return the password of the logged user
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @return the IBAN of the logged user
+     */
     public IBAN getIban() {
         return iban;
     }
 
+    /**
+     * @return if the user is a scout
+     */
     public Boolean getScout() {
         return scout;
     }

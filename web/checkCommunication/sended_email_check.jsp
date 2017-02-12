@@ -16,22 +16,26 @@
 
     <%if (sendedLettersBean.getLetters() == null) {%>
 
-    <div style="margin-top: 5%">
-        <h4>Premi il bottone per cercare le lettere inviate!</h4>
+    <div style="margin-top: 2%">
+        <h4 style="text-align: center;">Premi il bottone per cercare le lettere inviate!</h4>
     </div>
 
     <%} else if (sendedLettersBean.getLetters().size() == 0) {%>
 
-    <div style="margin-top: 5%">
+    <div style="margin-top: 2%">
         <h4>Non ci sono email inviate da mostrare!</h4>
     </div>
 
     <%} else for (int i = 0; i < sendedLettersBean.getLetters().size(); i++) {%>
 
     <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
         <jsp:include page="sended_email_card.jsp">
             <jsp:param name="sended_email_index" value="<%=i%>"/>
         </jsp:include>
+        </div>
+        <div class="col-sm-1"></div>
     </div>
 
     <%}%>

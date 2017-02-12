@@ -15,14 +15,23 @@ public class Letter {
         this.body = body;
     }
 
+    /**
+     * @return the username of the sender or receiver of the letter
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * @return the object of the letter
+     */
     public String getObject() {
         return object;
     }
 
+    /**
+     * @return the body of the letter
+     */
     public String getBody() {
         return body;
     }

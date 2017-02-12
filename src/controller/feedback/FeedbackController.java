@@ -22,6 +22,14 @@ import java.util.Date;
  */
 public class FeedbackController {
 
+    /**
+     * This method checks if there is a reservation stored in DB for a certain location and username. It also checks
+     * if the starting date of that reservation is already spent.
+     * @param username of which should have a reservation in DB
+     * @param locationID we are looking for in DB
+     * @return true if is verified the check
+     * @throws SQLException
+     */
     private boolean checkDate(String username, Integer locationID) throws SQLException {
         PreparedStatement ps = DataSource.getConnection().prepareStatement(Query.checkReservation);
         ps.setString(1, username);
@@ -36,6 +44,14 @@ public class FeedbackController {
         return false;
     }
 
+    /**
+     * Store the feedback in DB
+     * @param username of the user who wants to add the feedback
+     * @param locationID referred by the feedbak
+     * @param rating of the feeback
+     * @param description of the feedback
+     * @return true if it stores without error
+     */
     public boolean storeFeedback(String username, Integer locationID, Integer rating, String description) {
         try {
             if (!checkDate(username, locationID))

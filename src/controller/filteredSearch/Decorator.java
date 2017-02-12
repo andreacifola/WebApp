@@ -6,15 +6,20 @@ import model.payment.IBANCredentialNotValid;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public abstract class Decorator extends FilteredSearchController {
-    private FilteredSearchController filteredSearch;
+public abstract class Decorator extends Component {
+    private Component filteredSearchComponent;
 
-    public Decorator(FilteredSearchController filteredSearch) {
-        this.filteredSearch = filteredSearch;
+    public Decorator(Component filteredSearchComponent) {
+        this.filteredSearchComponent = filteredSearchComponent;
     }
 
+    /**
+     * Apply filter to a search with decorator pattern
+     * @return
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Structure> search() throws SQLException {
-        return filteredSearch.search();
+        return filteredSearchComponent.search();
     }
 }

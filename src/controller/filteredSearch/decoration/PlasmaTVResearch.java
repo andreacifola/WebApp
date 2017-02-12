@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 
 public class PlasmaTVResearch extends Decorator {
 
-    public PlasmaTVResearch(FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public PlasmaTVResearch(Component filteredSearchComponent) {
+        super(filteredSearchComponent);
     }
 
     public ArrayList<Structure> filterResearchPlasmaTV(ArrayList<Structure> structures) {

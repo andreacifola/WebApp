@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Structure;
@@ -12,8 +13,8 @@ public class RegionResearch extends Decorator {
 
     private String region;
 
-    public RegionResearch(String region, FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public RegionResearch(String region, Component filteredSearchComponent) {
+        super(filteredSearchComponent);
         this.region = region;
     }
 

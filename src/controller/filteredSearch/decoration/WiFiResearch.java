@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
 
 public class WiFiResearch extends Decorator {
 
-    public WiFiResearch(FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public WiFiResearch(Component filteredSearchComponent) {
+        super(filteredSearchComponent);
     }
 
     public ArrayList<Structure> filterResearchWiFi(ArrayList<Structure> structures) {

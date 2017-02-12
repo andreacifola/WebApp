@@ -18,8 +18,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FilteredSearchController {
+public class FilteredSearchController extends Component{
 
+    /**
+     * Looking in DB for feedbacks related to a certain location
+     * @param idLocation the location ID
+     * @return ArrayList of Feedback
+     * @throws SQLException
+     */
     public static ArrayList<Feedback> retrieveFeedbackByLocation(Integer idLocation) throws SQLException {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findFeedbackByLocation);
         preparedStatement.setInt(1, idLocation);
@@ -34,6 +40,12 @@ public class FilteredSearchController {
         return feedbacks;
     }
 
+    /**
+     * Looking in DB for User given its username
+     * @param u_username of the user we want find
+     * @return the User
+     * @throws SQLException
+     */
     public static User retrieveOwnerInfoByUsername(String u_username) throws SQLException{
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findUserByUsername);
         preparedStatement.setString(1, u_username);
@@ -46,17 +58,22 @@ public class FilteredSearchController {
                     u_email = resultSet.getString("email"),
                     u_password = resultSet.getString("password"),
                     u_iban = resultSet.getString("iban");
-            Boolean u_scout = resultSet.getBoolean("scout");
             Date u_date = resultSet.getDate("birthdate");
+            Boolean u_scout = resultSet.getBoolean("scout");
             try {
                 return new User(u_name, u_surname, u_city, u_address, u_date, u_email, u_username, u_password, u_iban, u_scout);
             } catch (IBANCredentialNotValid ibanCredentialNotValid) {
                 ibanCredentialNotValid.printStackTrace();
-            }
-        }
+            }        }
         throw new SQLException();
     }
 
+    /**
+     * Looking in DB for locations related to a certain structure
+     * @param id Structure ID
+     * @return ArrayList of Location
+     * @throws SQLException
+     */
     public static ArrayList<Location> retrieveLocationsInfoByStructureID(Integer id) throws SQLException {
         PreparedStatement preparedStatement = DataSource.getConnection().prepareStatement(Query.findLocationByStructure);
         preparedStatement.setInt(1, id);
@@ -89,6 +106,12 @@ public class FilteredSearchController {
         return locations;
     }
 
+    /**
+     * Looking in DB for Availability couple related to a certain location
+     * @param idLocation of the location
+     * @return ArrayList of Date[]
+     * @throws SQLException
+     */
     public static ArrayList<Date[]> retrieveAvailabilityByLocation(Integer idLocation) throws SQLException {
         PreparedStatement preparedStatementAvailability = DataSource.getConnection().prepareStatement(Query.findAvailability);
         preparedStatementAvailability.setInt(1, idLocation);
@@ -102,7 +125,13 @@ public class FilteredSearchController {
         return availability;
     }
 
-    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException{
+    /**
+     * Looking in DB for Structure given a ResultSet
+     * @param resultSet returned by a query
+     * @return a Structure
+     * @throws SQLException
+     */
+    public static Structure retrieveStructureInfoFromDatabaseQuery(ResultSet resultSet) throws SQLException {
         Integer s_id = resultSet.getInt("id");
         String s_name = resultSet.getString("name"),
                 s_owner = resultSet.getString("owner"),
@@ -119,7 +148,12 @@ public class FilteredSearchController {
         return new Structure(s_id, s_name, s_region, s_city, s_address, s_housenumber, s_cap, owner, s_description, locations);
     }
 
-    protected ArrayList<Structure> search() throws SQLException{
+    /**
+     * Looking in DB for structures
+     * @return ArrayList of Structure
+     * @throws SQLException
+     */
+    protected ArrayList<Structure> search() throws SQLException {
         PreparedStatement statement = DataSource.getConnection().prepareStatement(Query.findStructures);
         ResultSet resultSet = statement.executeQuery();
         ArrayList<Structure> structures = new ArrayList<>();
@@ -129,11 +163,34 @@ public class FilteredSearchController {
         return structures;
     }
 
+    /**
+     * Start search applying filters
+     * @param from start Date
+     * @param to end Date
+     * @param region of Structure
+     * @param city of Structure
+     * @param name of Structure
+     * @param rooms in Location
+     * @param baths in Location
+     * @param maxGuests in Location
+     * @param beds in Location
+     * @param maxPrice of Location
+     * @param wifi service in Location
+     * @param smoking service in Location
+     * @param petsAllowed service in Location
+     * @param parking service in Location
+     * @param roomService service in Location
+     * @param conditionedAir service in Location
+     * @param views service in Location
+     * @param plasmaTV service in Location
+     * @return ArrayList of Structure
+     * @throws SQLException
+     */
     public ArrayList<Structure> startResearch(Date from, Date to, String region, String city, String name, Integer rooms, Integer baths, Integer maxGuests, Integer beds,
                                               Integer maxPrice, Boolean wifi, Boolean smoking, Boolean petsAllowed, Boolean parking, Boolean roomService,
                                               Boolean conditionedAir, Boolean views, Boolean plasmaTV) throws SQLException {
 
-        FilteredSearchController fsc = this;
+        Component fsc = this;
         fsc = new PriceResearch(maxPrice, fsc);
 
         if (from != null && to != null) {

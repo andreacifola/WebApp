@@ -1,5 +1,6 @@
 package controller.filteredSearch.decoration;
 
+import controller.filteredSearch.Component;
 import controller.filteredSearch.Decorator;
 import controller.filteredSearch.FilteredSearchController;
 import model.insertNewLocation.Location;
@@ -13,8 +14,8 @@ public class BedsResearch extends Decorator {
 
     private Integer beds;
 
-    public BedsResearch(Integer beds, FilteredSearchController filteredSearch) {
-        super(filteredSearch);
+    public BedsResearch(Integer beds, Component filteredSearchComponent) {
+        super(filteredSearchComponent);
         this.beds = beds;
     }
 

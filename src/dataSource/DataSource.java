@@ -13,7 +13,7 @@ public class DataSource {
             "jdbc:postgresql://localhost:5432/postgres"; //jdbc:postgresql://localhost:5432/ispw
 
     private static String user = "postgres",
-            password = "r.f.arredamenti";
+            password = "postgres";
 
     private static Connection connection = null;
 

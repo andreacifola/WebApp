@@ -78,4 +78,30 @@ public class Structure {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Structure structure = (Structure) o;
+
+        if (id != null ? !id.equals(structure.id) : structure.id != null) return false;
+        if (owner != null ? !owner.equals(structure.owner) : structure.owner != null) return false;
+        if (address != null ? !address.equals(structure.address) : structure.address != null) return false;
+        if (locations != null ? !locations.equals(structure.locations) : structure.locations != null) return false;
+        if (name != null ? !name.equals(structure.name) : structure.name != null) return false;
+        return description != null ? description.equals(structure.description) : structure.description == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (locations != null ? locations.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
+    }
 }

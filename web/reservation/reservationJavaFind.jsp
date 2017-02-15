@@ -1,6 +1,7 @@
 <%@ page import="bean.ReservationListBean" %>
 <%@ page import="controller.ReservationController.FindReservationByUsername" %>
 <%@ page import="java.sql.SQLException" %>
+<jsp:useBean id="logged_user" scope="session" class="model.User"/>
 <%--
   Created by IntelliJ IDEA.
   User: tizianoditoma
@@ -13,7 +14,7 @@
 
     ReservationListBean reservations = new ReservationListBean();
     try {
-        reservations.setReservations(new FindReservationByUsername().findReservationByUsername("tiziano.ditoma"));
+        reservations.setReservations(new FindReservationByUsername().findReservationByUsername(logged_user.getUsername()));
         session.setAttribute("reservationBean", reservations);
     } catch (SQLException ibanCredentialNotValid) {
         ibanCredentialNotValid.printStackTrace();
